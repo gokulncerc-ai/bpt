@@ -20,28 +20,7 @@ export default function Navbar() {
           TOP UTILITY BAR
       ========================================================= */}
       <div className="bg-[#A8C0E0] text-navy text-[12px]">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-2.5 flex items-center justify-between gap-4">
-          {/* Contact information */}
-          <div className="flex items-center gap-5">
-            <a
-              href={contact.admissionHotlineHref}
-              className="flex items-center gap-2 hover:opacity-75 transition-opacity duration-300 font-medium"
-            >
-              <PhoneIcon />
-              <span className="hidden sm:inline">
-                {contact.admissionHotline}
-              </span>
-            </a>
-
-            <a
-              href={`mailto:${contact.email}`}
-              className="hidden md:flex items-center gap-2 hover:opacity-75 transition-opacity duration-300 font-medium"
-            >
-              <MailIcon />
-              <span>{contact.email}</span>
-            </a>
-          </div>
-
+        <div className="max-w-7xl mx-auto px-5 md:px-8 py-2.5 flex items-center justify-end gap-4">
           {/* Admission information */}
           <div className="text-navy font-bold tracking-wide text-[10px] sm:text-[11px] uppercase whitespace-nowrap bg-white/40 border border-white/40 px-3 py-1 rounded-full">
             ADMISSION ENQUIRY 2026–27 ·{" "}
@@ -106,11 +85,11 @@ export default function Navbar() {
 
               <div className="leading-tight">
                 <div className="font-display font-semibold text-[16px] md:text-[18px] text-navy tracking-[-0.01em]">
-                  P.K. Das College
+                  P K DAS COLLEGE
                 </div>
 
                 <div className="font-mono text-[9px] md:text-[10px] tracking-[0.18em] text-green uppercase mt-0.5">
-                  of Physiotherapy
+                  OF PHYSIOTHERAPY
                 </div>
               </div>
             </Link>
@@ -129,9 +108,9 @@ export default function Navbar() {
                 Departments
               </NavLink>
 
-              <NavLink href="#events">
+              {/* <NavLink href="#events">
                 Events
-              </NavLink>
+              </NavLink> */}
               <NavLink href="#admissions">
                 Admissions
               </NavLink>

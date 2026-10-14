@@ -25,13 +25,13 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "P.K. Das College of Physiotherapy | Ottapalam, Palakkad",
+  title: "P K Das College of Physiotherapy | Ottapalam, Palakkad",
   description:
-    "P.K. Das College of Physiotherapy, Vaniyamkulam, Ottapalam, Palakkad — a KUHS-affiliated physiotherapy programme with hospital-linked clinical training. Apply now or enquire about admissions 2024-25.",
+    "P K Das College of Physiotherapy, Vaniyamkulam, Ottapalam, Palakkad — a KUHS-affiliated physiotherapy programme with hospital-linked clinical training. Apply now or enquire about admissions 2024-25.",
   keywords: [
     "physiotherapy college Palakkad",
     "physiotherapy course Ottapalam",
-    "P.K. Das College of Physiotherapy",
+    "P K Das College of Physiotherapy",
     "BPT Kerala",
     "KUHS physiotherapy",
   ],

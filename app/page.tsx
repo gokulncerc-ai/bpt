@@ -16,7 +16,7 @@ export default function Home() {
       <About />
       <MissionVision />
       <Departments />
-      <Events />
+      {/* <Events /> */}
       <AdmissionsCTA />
       <Contact />
       <Footer />

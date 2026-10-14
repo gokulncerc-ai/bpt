@@ -49,17 +49,9 @@ export default function Contact() {
               icon={<PhoneIcon />}
               title="Admission Hotline"
             >
-              <a
-                href={contact.admissionHotlineHref}
-                className="block hover:text-green transition-colors"
-              >
-                {contact.admissionHotline}
-              </a>
-
               <div className="text-navy/45 text-[12.5px] mt-2 font-mono uppercase tracking-wide">
                 Enquiry 2026–27
               </div>
-
               {contact.enquiryNumbers.map((n) => (
                 <a
                   key={n}
@@ -70,7 +62,6 @@ export default function Contact() {
                 </a>
               ))}
             </InfoCard>
-
 
             {/* Admission Mail */}
             <InfoCard

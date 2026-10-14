@@ -9,7 +9,7 @@ export default function About() {
             Welcome
           </span>
           <h2 className="font-display text-[30px] md:text-[38px] font-semibold text-navy mt-3 leading-tight">
-            P.K. Das College
+            P K Das College
             <br className="hidden md:block" /> of Physiotherapy
           </h2>
           <p className="mt-5 text-navy/70 leading-relaxed">

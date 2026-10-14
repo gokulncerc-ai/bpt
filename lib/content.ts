@@ -1,22 +1,22 @@
 export const contact = {
   institution:
-    "P.K. Das Institute of Medical Sciences Hospital and Medical College",
+    "P K DAS COLLEGE OF PHYSIOTHERAPY",
 
   address:
-    "Panayoor, Vaniyamkulam, Ottapalam, Palakkad District 679522, Kerala, India",
+    "Vaniamkulam, Ottapalam, Palakkad Dist, Kerala - 679522",
 
-  admissionHotline: "+91 90613 3877",
+  admissionHotline: "+917511115588",
 
   admissionHotlineHref:
-    "tel:+91906133877",
+    "tel: 0466 2344700",
 
   enquiryNumbers: [
-    "9656000005",
-    "9605771555",
+    "0466 2344700",
+    "+917511115588",
   ],
 
   email:
-    "admissions@ncerc.ac.in",
+    "office@pkdascollegeofphysiotherapy.com",
 
   mapEmbedSrc:
     "https://maps.google.com/maps?q=10.7828475,76.3269766&z=17&output=embed",

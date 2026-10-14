@@ -171,7 +171,7 @@ export default function AdmissionsCTA() {
               Admissions Open
             </span>
             <h2 className="font-display text-[30px] md:text-[42px] font-semibold text-navy mt-4 leading-tight">
-              Begin your career in physiotherapy at P.K. Das College.
+              Begin your career in physiotherapy at P K Das College.
             </h2>
             <p className="mt-4 text-navy/80 max-w-xl mx-auto leading-relaxed">
               Speak with our admission team or send in your application

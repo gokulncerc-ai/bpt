@@ -15,7 +15,7 @@ export default function Footer() {
               className="h-10 w-10 object-contain"
             />
             <div className="font-display text-white font-semibold text-[16px]">
-              P.K. Das College of Physiotherapy
+              P K Das College of Physiotherapy
             </div>
           </div>
           <p className="mt-4 text-[13.5px] leading-relaxed max-w-sm">
@@ -57,7 +57,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-5 flex flex-col sm:flex-row gap-2 justify-between text-[12.5px] text-white/35">
-          <span>© {new Date().getFullYear()} P.K. Das College of Physiotherapy. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} P K Das College of Physiotherapy. All rights reserved.</span>
           <span>A unit of P.K. Das Institute of Medical Sciences</span>
         </div>
       </div>

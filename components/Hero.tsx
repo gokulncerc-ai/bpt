@@ -13,27 +13,27 @@ import PhysiotherapyStudents2 from "../public/collegestuds.jpg";
 const heroImages = [
   {
     src: collegeImage,
-    alt: "P.K. Das College of Physiotherapy campus",
+    alt: "P K Das College of Physiotherapy campus",
   },
   {
     src: collegeImage1,
-    alt: "P.K. Das College campus",
+    alt: "P K Das College campus",
   },
   {
     src: collegeImage2,
-    alt: "P.K. Das College facilities",
+    alt: "P K Das College facilities",
   },
   {
     src: collegeImage3,
-    alt: "P.K. Das College infrastructure",
+    alt: "P K Das College infrastructure",
   },
   {
     src: collegeStudents1,
-    alt: "P.K. Das College students",
+    alt: "P K Das College students",
   },
   {
     src: PhysiotherapyStudents2,
-    alt: "P.K. Das College of Physiotherapy students",
+    alt: "P K Das College of Physiotherapy students",
   },
 ];
 
@@ -102,7 +102,7 @@ export default function Hero() {
           {/* Location Badge */}
           <div className="inline-flex items-center gap-2 font-mono text-[11px] sm:text-[12px] tracking-[0.16em] sm:tracking-[0.2em] uppercase text-white bg-white/10 border border-white/25 backdrop-blur-md rounded-full px-4 py-2 mb-7">
             <span className="w-1.5 h-1.5 rounded-full bg-amber" />
-            Ottapalam · Palakkad · Kerala
+            Vaniamkulam · Palakkad · Kerala
           </div>
 
           {/* Main Heading */}
@@ -116,7 +116,7 @@ export default function Hero() {
 
           {/* Subtitle Description */}
           <p className="mt-6 text-[16px] md:text-[18px] text-white/90 max-w-2xl leading-relaxed">
-            P.K. Das College of Physiotherapy, Vaniyamkulam, offers a
+            P K Das College of Physiotherapy, Vaniyamkulam, offers a
             KUHS affiliated programme built on real clinical exposure
             from musculoskeletal care to sports injury and
             neuro-rehabilitation.

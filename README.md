@@ -1,6 +1,6 @@
-# P.K. Das College of Physiotherapy — Website
+# P K Das College of Physiotherapy — Website
 
-A fully static marketing website for P.K. Das College of Physiotherapy
+A fully static marketing website for P K Das College of Physiotherapy
 (Vaniyamkulam, Ottapalam, Palakkad), built with **Next.js 14 (App Router)**,
 **TypeScript**, and **Tailwind CSS**. No backend, no database — pure
 frontend, exported as static HTML/CSS/JS.
