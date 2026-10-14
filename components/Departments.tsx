@@ -2,7 +2,7 @@ import Image from "next/image";
 import Reveal from "./Reveal";
 import { departments } from "@/lib/content";
 
-import departmentone from "../public/AnatomyMuseum.jpg";
+import departmentone from "../public/anatomymuseum.jpg";
 import departmenttwo from "../public/physiologymuseum.jpg";
 import departmentthree from "../public/microbiologylab.jpg";
 import departmentfour from "../public/exercisetherapylab.webp";
@@ -10,7 +10,7 @@ import departmentfive from "../public/massagetherapy.jpg";
 import departmentsix from "../public/electrotherapylab.jpg";
 import departmentseven from "../public/cardiologylab.jpg";
 import departmenteight from "../public/orthopaediclab.jpg";
-import departmentnine from "../public/LaserTherapy.avif";
+import departmentnine from "../public/lasertherapy.avif";
 
 // Array matching the order of the departments
 const departmentImages = [
