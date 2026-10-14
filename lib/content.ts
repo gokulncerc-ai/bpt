@@ -12,10 +12,8 @@ export const contact = {
     "0466 2344700",
     "+917511115588",
   ],
-
   email:
     "office@pkdascollegeofphysiotherapy.com",
-
   mapEmbedSrc:
     "https://maps.google.com/maps?q=10.7828475,76.3269766&z=17&output=embed",
 

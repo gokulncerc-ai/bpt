@@ -22,7 +22,6 @@ export default function Footer() {
             Sciences (KUHS).
           </p>
         </div>
-
         <div>
           <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/40 mb-4">
             Explore
@@ -57,7 +56,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-5 flex flex-col sm:flex-row gap-2 justify-between text-[12.5px] text-white/35">
           <span>© {new Date().getFullYear()} P K Das College of Physiotherapy. All rights reserved.</span>
-          <span>A unit of P.K. Das Institute of Medical Sciences</span>
+          <span>A unit of P K Das Institute of Medical Sciences</span>
         </div>
       </div>
     </footer>

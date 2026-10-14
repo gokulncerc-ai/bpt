@@ -141,7 +141,6 @@ export default function AdmissionsCTA() {
                 ))}
               </ul>
             </AccordionItem>
-
             {/* ACCORDION ITEM 4 */}
             <AccordionItem
               title="Scope of Physiotherapy"

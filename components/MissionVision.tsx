@@ -110,7 +110,6 @@ export default function MissionVision() {
                     Our support is with you always, and I wish you all the success in every endeavour you take up for the growth and development of the students and faculty of Nehru Group of Institutions.
                   </p>
                 </div>
-
                 {/* Signature Block (Right Aligned) */}
                 <div className="mt-8 text-right">
                   <p className="font-semibold text-navy text-[16px]">

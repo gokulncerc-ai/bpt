@@ -5,7 +5,6 @@ export default function Contact() {
   return (
     <section id="contact" className="bg-green/5">
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-20 md:py-28">
-
         {/* =========================================================
             SECTION HEADER
         ========================================================= */}
@@ -100,7 +99,7 @@ export default function Contact() {
 
               {/* Google Maps iframe */}
               <iframe
-                title="P.K. Das Institute of Medical Sciences Hospital and Medical College location"
+                title="PK DAS COLLEGE OF PHYSIOTHERAPY"
                 className="
                   absolute
                   inset-0
@@ -148,7 +147,7 @@ export default function Contact() {
                   "
                 >
                   <div className="font-display font-semibold text-navy text-[13.5px]">
-                    P.K. Das Institute of Medical Sciences
+                  P K DAS COLLEGE OF PHYSIOTHERAPY
                   </div>
 
                   <div className="text-navy/55 text-[12px] mt-0.5">

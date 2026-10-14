@@ -22,7 +22,6 @@ const eventImages = [
     eventeight,
     eventnine,
 ];
-
 export default function Events() {
     return (
         <section

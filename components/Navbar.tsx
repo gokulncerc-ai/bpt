@@ -66,7 +66,7 @@ export default function Navbar() {
               <div className="relative flex items-center justify-center">
                 <Image
                   src="/logo.png"
-                  alt="P.K. Das Institute of Medical Sciences"
+                  alt="P K DAS COLLEGE OF PHYSIOTHERAPY"
                   width={54}
                   height={54}
                   className="
