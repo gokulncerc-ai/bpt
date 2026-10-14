@@ -132,7 +132,6 @@ export default function Hero() {
             >
               Apply Now
             </a>
-
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSeNZi8r2gbHvLu9wPG5GALbA4HN3PeTT5cK1WyEh1pHMDBeFw/viewform"
               target="_blank"
@@ -170,10 +169,8 @@ export default function Hero() {
           />
         ))}
       </div>
-
       {/* Bottom Rule Accent */}
       <div className="relative z-20 tick-rule" />
-
     </section>
   );
 }

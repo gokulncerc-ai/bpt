@@ -4,7 +4,6 @@ A fully static marketing website for P K Das College of Physiotherapy
 (Vaniyamkulam, Ottapalam, Palakkad), built with **Next.js 14 (App Router)**,
 **TypeScript**, and **Tailwind CSS**. No backend, no database — pure
 frontend, exported as static HTML/CSS/JS.
-
 ## Design
 
 - **Signature motif:** a goniometer (the angle-measuring tool used in every

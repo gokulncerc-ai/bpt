@@ -42,7 +42,6 @@ export default function Contact() {
               {contact.address}
             </InfoCard>
 
-
             {/* Admission Hotline */}
             <InfoCard
               accent="amber"

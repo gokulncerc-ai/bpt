@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { contact } from "@/lib/content";
-
 export default function Footer() {
   return (
     <footer className="bg-navy text-white/60">

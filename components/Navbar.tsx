@@ -82,7 +82,6 @@ export default function Navbar() {
                   priority
                 />
               </div>
-
               <div className="leading-tight">
                 <div className="font-display font-semibold text-[16px] md:text-[18px] text-navy tracking-[-0.01em]">
                   P K DAS COLLEGE
@@ -94,9 +93,6 @@ export default function Navbar() {
               </div>
             </Link>
 
-            {/* =====================================================
-                DESKTOP NAVIGATION
-            ===================================================== */}
             <nav className="hidden lg:flex items-center ml-auto mr-7 gap-7 xl:gap-9">
               <NavLink href="#about">About</NavLink>
 

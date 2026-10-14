@@ -160,7 +160,6 @@ export default function AdmissionsCTA() {
           </Reveal>
         </div>
       </section>
-
       {/* =========================================================
           CURRENT ADMISSIONS CTA SECTION
       ========================================================= */}

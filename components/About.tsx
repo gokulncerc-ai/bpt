@@ -1,5 +1,4 @@
 import Reveal from "./Reveal";
-
 export default function About() {
   return (
     <section id="about" className="bg-white">

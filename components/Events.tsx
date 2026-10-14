@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 import { events } from "../lib/content";
-
 import eventone from "../public/events/eventone.webp";
 import eventtwo from "../public/events/eventtwo.webp";
 import eventthree from "../public/events/eventthree.webp";

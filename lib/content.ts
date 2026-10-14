@@ -1,10 +1,8 @@
 export const contact = {
   institution:
     "P K DAS COLLEGE OF PHYSIOTHERAPY",
-
   address:
     "Vaniamkulam, Ottapalam, Palakkad Dist, Kerala - 679522",
-
   admissionHotline: "+917511115588",
 
   admissionHotlineHref:
