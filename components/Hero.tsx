@@ -106,20 +106,23 @@ export default function Hero() {
           </div>
 
           {/* Main Heading */}
-          <h1 className="font-display text-[36px] leading-[1.08] sm:text-[46px] md:text-[56px] lg:text-[64px] font-semibold tracking-[-0.015em] text-white max-w-4xl [text-shadow:0_2px_18px_rgba(15,118,110,0.35)]">
-            The best Physiotherapy course in{" "}
-            <span className="italic text-amber">
+          <h1 className="max-w-4xl font-serif text-[36px] font-normal leading-[1.12] tracking-[-0.015em] text-white sm:text-[46px] md:text-[56px] lg:text-[64px]">
+            The best Physiotherapy College in{" "}
+            <span className="italic text-[#D2B87C]">
               Palakkad
-            </span>{" "}
-            starts with how you&apos;re measured.
-          </h1>
+            </span>
+            <span className="mt-4 block font-sans text-lg sm:text-xl md:text-2xl font-bold tracking-wide text-[#D2B87C]">
+              Measure <span className="mx-1 text-white/60">•</span> Understand <span className="mx-1 text-white/60">•</span> Restore
+            </span>
+            <span className="mt-2 block text-base sm:text-lg md:text-xl font-normal leading-relaxed text-white/80">
+              The Science of Physiotherapy.
+            </span>
+          </h1> 
 
           {/* Subtitle Description */}
           <p className="mt-6 text-[16px] md:text-[18px] text-white/90 max-w-2xl leading-relaxed">
-            P K Das College of Physiotherapy, Vaniyamkulam, offers a
-            KUHS affiliated programme built on real clinical exposure
-            from musculoskeletal care to sports injury and
-            neuro-rehabilitation.
+            P K Das College of Physiotherapy offers a KUHS affiliated programme that is built on clinical exposure covering 
+            musculoskeletal care, sports injury and neuro‑rehabilitation.
           </p>
 
           {/* CTA Buttons */}

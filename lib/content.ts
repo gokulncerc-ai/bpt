@@ -33,55 +33,54 @@ export const departments: Department[] = [
   {
     name: "Anatomy Museum",
     icon: "bone",
-    text: "Trains students across all branches of human anatomy using traditional and innovative methods with charts, bones, organs, specimens and slides supporting projector led, smart class coaching.",
+    text: "Our Anatomy Museum at PK Das College of Physiotherapy, trains students in all parts of anatomy using both old and new methods with charts, bones organs, specimens and slides that work with projector‑led, smart class teaching.",
   },
 
   {
     name: "Physiology Museum",
     icon: "pulse",
-    text: "Devoted to training and education in physiology, pushing the boundaries of scientific discovery with specimens, charts and diagrammatic representations of the human system.",
+    text: "Physiology Museum focuses on teaching and learning about physiology pushing science forward with specimens, charts and diagrams that show the system.",
   },
 
   {
     name: "Microbiology Lab",
     icon: "microscope",
-    text: "Uses mechanical devices and structured movement approaches to restore normal musculoskeletal function, reduce pain from disease or injury, and promote mobility kept current with modern developments.",
+    text: "Microbiology Lab uses machines and planned movement techniques to restore musculoskeletal function lower pain from disease or injury and promote mobility while staying up to date with modern progress.",
   },
 
   {
     name: "Exercise Therapy Lab",
     icon: "figure",
-    text: "Focuses on improving strength, mobility and function through tailored physical exercises using modern equipment for rehabilitation and prevention.",
+    text: "Exercise Therapy Lab focuses on boosting strength, mobility and function through tailored exercises that use modern equipment for rehab and prevention",
   },
-
   {
     name: "Massage Therapy & Manipulation Lab",
     icon: "hands",
-    text: "Manual and instrument assisted manipulation techniques including activator and drop table methods for therapeutic, targeted pain management.",
+    text: "Massage Therapy & Manipulation Lab uses hands and tools to manipulate, including activator and drop table methods for targeted pain relief.",
   },
 
   {
     name: "Electrotherapy Lab",
     icon: "bolt",
-    text: "Central to managing pain and paralysis promoting muscle relaxation, reducing spasm, preventing disuse atrophy and enhancing local blood circulation.",
+    text: "Electrotherapy Lab is key to managing pain and paralysis by promoting muscle relaxation cutting spasm stopping disuse atrophy and boosting blood flow.",
   },
 
   {
     name: "Cardiology Lab",
     icon: "heart",
-    text: "Equipped with the essential tools and apparatus for both emergency response and the treatment of cardiac conditions in physiotherapeutic care.",
+    text: "Cardiology Lab has the tools and equipment for emergency response and treating heart conditions in physiotherapeutic care.",
   },
 
   {
     name: "Orthopaedic Lab",
     icon: "joint",
-    text: "Physiotherapy care for joint pain, injuries, surgeries and replacements with training in orthosis and prosthesis, and a focus on prevention and education.",
+    text: "Orthopaedic Lab provides physiotherapy for pain, injuries, surgeries and replacements training, in orthosis and prosthesis while focusing on prevention and education.",
   },
 
   {
     name: "Laser Therapy Lab",
     icon: "laser",
-    text: "Low-Level Laser Therapy (LLLT) relieves pain, reduces inflammation and accelerates healing — stimulating cellular repair without heat, sound or vibration.",
+    text: "Laser Therapy Lab uses Low‑Level Laser Therapy (LLLT) to relieve pain, reduces inflammation and speed healing by stimulating repair without heat, sound or vibration.",
   },
 ];
 
