@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -17,19 +18,6 @@ export default function Navbar() {
   return (
     <>
       {/* =========================================================
-          TOP UTILITY BAR
-      ========================================================= */}
-      <div className="bg-[#A8C0E0] text-navy text-[12px]">
-        <div className="max-w-7xl mx-auto px-5 md:px-8 py-2.5 flex items-center justify-end gap-4">
-          {/* Admission information */}
-          <div className="text-navy font-bold tracking-wide text-[10px] sm:text-[11px] uppercase whitespace-nowrap bg-white/40 border border-white/40 px-3 py-1 rounded-full">
-            ADMISSION ENQUIRY 2026–27 ·{" "}
-            {contact.enquiryNumbers.join(" / ")}
-          </div>
-        </div>
-      </div>
-
-      {/* =========================================================
           MAIN HEADER
       ========================================================= */}
       <header className="sticky top-0 z-50 pt-3 pb-3 bg-white/80 backdrop-blur-md">
@@ -45,18 +33,18 @@ export default function Navbar() {
               bg-white/95
               backdrop-blur-xl
               border
-              border-white/70
-              shadow-[0_18px_45px_rgba(15,118,110,0.10)]
+              border-slate-100
+              shadow-[0_18px_45px_rgba(30,60,118,0.08)]
               flex
               items-center
               justify-between
               transition-all
               duration-300
-              hover:shadow-[0_22px_55px_rgba(15,118,110,0.14)]
+              hover:shadow-[0_22px_55px_rgba(30,60,118,0.12)]
             "
           >
             {/* =====================================================
-                LOGO
+                LOGO & BRANDING
             ===================================================== */}
             <Link
               href="#top"
@@ -65,7 +53,7 @@ export default function Navbar() {
             >
               <div className="relative flex items-center justify-center">
                 <Image
-                  src="/logo.png"
+                  src="/BPTLOGO.png"
                   alt="P K DAS COLLEGE OF PHYSIOTHERAPY"
                   width={54}
                   height={54}
@@ -82,44 +70,42 @@ export default function Navbar() {
                   priority
                 />
               </div>
-              <div className="leading-tight">
-                <div className="font-display font-semibold text-[16px] md:text-[18px] text-navy tracking-[-0.01em]">
-                  P K DAS COLLEGE
+
+              {/* Exact Brand Logo Typography Match */}
+              <div className="leading-none">
+                {/* PK DAS Line */}
+                <div className="font-sans font-extrabold text-[18px] md:text-[22px] tracking-tight">
+                  <span className="text-[#1e3c76]">PK</span>{" "}
+                  <span className="text-[#29aad8]">DAS</span>
                 </div>
 
-                <div className="font-mono text-[9px] md:text-[10px] tracking-[0.18em] text-green uppercase mt-0.5">
-                  OF PHYSIOTHERAPY
+                {/* COLLEGE OF PHYSIOTHERAPY Line */}
+                <div className="font-sans font-extrabold text-[9px] md:text-[10.5px] tracking-[0.08em] text-[#1e3c76] uppercase mt-1">
+                  COLLEGE OF PHYSIOTHERAPY
                 </div>
               </div>
             </Link>
 
+            {/* =====================================================
+                DESKTOP NAVIGATION LINKS
+            ===================================================== */}
             <nav className="hidden lg:flex items-center ml-auto mr-7 gap-7 xl:gap-9">
               <NavLink href="#about">About</NavLink>
 
-              <NavLink href="#mission">
-                Mission &amp; Vision
-              </NavLink>
+              <NavLink href="#mission">Mission &amp; Vision</NavLink>
 
-              <NavLink href="#departments">
-                Departments
-              </NavLink>
+              <NavLink href="#departments">Departments</NavLink>
 
-              {/* <NavLink href="#events">
-                Events
-              </NavLink> */}
-              <NavLink href="#admissions">
-                Admissions
-              </NavLink>
+              <NavLink href="#admissions">Admissions</NavLink>
 
-              <NavLink href="#contact">
-                Contact
-              </NavLink>
+              <NavLink href="#contact">Contact</NavLink>
             </nav>
 
             {/* =====================================================
                 DESKTOP ACTION BUTTONS
             ===================================================== */}
             <div className="hidden lg:flex items-center gap-3 shrink-0">
+              {/* Enquire Button - Primary Navy Outline */}
               <a
                 href={APPLY_FORM}
                 className="
@@ -132,51 +118,53 @@ export default function Navbar() {
                   xl:px-6
                   rounded-full
                   border
-                  border-navy/25
+                  border-[#1e3c76]/30
                   bg-white
-                  text-navy
+                  text-[#1e3c76]
                   font-semibold
                   text-[13px]
                   xl:text-[14px]
                   transition-all
                   duration-300
-                  hover:bg-navy
+                  hover:bg-[#1e3c76]
                   hover:text-white
                   hover:-translate-y-0.5
+                  hover:shadow-[0_10px_25px_-8px_rgba(30,60,118,0.4)]
                 "
               >
                 Enquire Now
               </a>
 
+              {/* Apply Button - Brand Green Solid (#43ab5e) */}
               <a
                 href={APPLY_FORM}
                 className="
-                    inline-flex
-                    items-center
-                    justify-center
-                    h-[48px]
-                    px-5
-                    xl:px-6
-                    rounded-full
-                    bg-amber
-                    text-white
-                    font-semibold
-                    text-[13px]
-                    xl:text-[14px]
-                    shadow-[0_12px_28px_-10px_rgba(245,158,11,0.65)]
-                    transition-all
-                    duration-300
-                    hover:bg-amber-dark
-                    hover:-translate-y-1
-                    hover:shadow-[0_17px_35px_-10px_rgba(245,158,11,0.75)]
-                  "
+                  inline-flex
+                  items-center
+                  justify-center
+                  h-[48px]
+                  px-5
+                  xl:px-6
+                  rounded-full
+                  bg-[#43ab5e]
+                  text-white
+                  font-semibold
+                  text-[13px]
+                  xl:text-[14px]
+                  shadow-[0_12px_28px_-10px_rgba(67,171,94,0.5)]
+                  transition-all
+                  duration-300
+                  hover:bg-[#389450]
+                  hover:-translate-y-1
+                  hover:shadow-[0_17px_35px_-10px_rgba(67,171,94,0.65)]
+                "
               >
                 Apply Now
               </a>
             </div>
 
             {/* =====================================================
-                MOBILE MENU BUTTON
+                MOBILE MENU TOGGLE BUTTON (#1e3c76)
             ===================================================== */}
             <button
               type="button"
@@ -188,7 +176,7 @@ export default function Navbar() {
                 w-[48px]
                 h-[48px]
                 rounded-full
-                bg-green
+                bg-[#1e3c76]
                 text-white
                 flex
                 items-center
@@ -196,18 +184,18 @@ export default function Navbar() {
                 shrink-0
                 transition-all
                 duration-300
-                hover:bg-green-dark
+                hover:bg-[#29aad8]
                 hover:scale-105
                 focus:outline-none
                 focus:ring-2
-                focus:ring-green/30
+                focus:ring-[#29aad8]/40
               "
             >
               {mobileOpen ? <CloseIcon /> : <MenuIcon />}
             </button>
 
             {/* =====================================================
-                MOBILE MENU
+                MOBILE DROPDOWN MENU
             ===================================================== */}
             {mobileOpen && (
               <div
@@ -219,27 +207,20 @@ export default function Navbar() {
                   rounded-[28px]
                   bg-white
                   border
-                  border-navy/5
-                  shadow-[0_25px_60px_rgba(15,118,110,0.16)]
+                  border-slate-100
+                  shadow-[0_25px_60px_rgba(30,60,118,0.15)]
                   overflow-hidden
                   lg:hidden
                   animate-fadeDown
                 "
               >
                 <div className="p-5">
-                  {/* Mobile navigation */}
                   <nav className="flex flex-col gap-1">
-                    <MobileNavLink
-                      href="#about"
-                      onClick={closeMobileMenu}
-                    >
+                    <MobileNavLink href="#about" onClick={closeMobileMenu}>
                       About
                     </MobileNavLink>
 
-                    <MobileNavLink
-                      href="#mission"
-                      onClick={closeMobileMenu}
-                    >
+                    <MobileNavLink href="#mission" onClick={closeMobileMenu}>
                       Mission &amp; Vision
                     </MobileNavLink>
 
@@ -251,29 +232,19 @@ export default function Navbar() {
                     </MobileNavLink>
 
                     <MobileNavLink
-                      href="#events"
-                      onClick={closeMobileMenu}
-                    >
-                      Events
-                    </MobileNavLink>
-
-                    <MobileNavLink
                       href="#admissions"
                       onClick={closeMobileMenu}
                     >
                       Admissions
                     </MobileNavLink>
 
-                    <MobileNavLink
-                      href="#contact"
-                      onClick={closeMobileMenu}
-                    >
+                    <MobileNavLink href="#contact" onClick={closeMobileMenu}>
                       Contact
                     </MobileNavLink>
                   </nav>
 
-                  {/* Mobile CTA buttons */}
-                  <div className="mt-5 pt-5 border-t border-navy/10 grid grid-cols-2 gap-3">
+                  {/* Mobile CTAs */}
+                  <div className="mt-5 pt-5 border-t border-slate-100 grid grid-cols-2 gap-3">
                     <a
                       href={APPLY_FORM}
                       onClick={closeMobileMenu}
@@ -281,16 +252,16 @@ export default function Navbar() {
                         h-[50px]
                         rounded-full
                         border
-                        border-navy/25
+                        border-[#1e3c76]/30
                         flex
                         items-center
                         justify-center
-                        text-navy
+                        text-[#1e3c76]
                         font-semibold
                         text-[14px]
                         transition-all
                         duration-300
-                        hover:bg-navy
+                        hover:bg-[#1e3c76]
                         hover:text-white
                       "
                     >
@@ -301,20 +272,20 @@ export default function Navbar() {
                       href={APPLY_FORM}
                       onClick={closeMobileMenu}
                       className="
-                          h-[50px]
-                          rounded-full
-                          bg-amber
-                          text-white
-                          flex
-                          items-center
-                          justify-center
-                          font-semibold
-                          text-[14px]
-                          shadow-[0_10px_25px_-10px_rgba(245,158,11,0.7)]
-                          transition-all
-                          duration-300
-                          hover:bg-amber-dark
-                        "
+                        h-[50px]
+                        rounded-full
+                        bg-[#43ab5e]
+                        text-white
+                        flex
+                        items-center
+                        justify-center
+                        font-semibold
+                        text-[14px]
+                        shadow-[0_10px_25px_-10px_rgba(67,171,94,0.6)]
+                        transition-all
+                        duration-300
+                        hover:bg-[#389450]
+                      "
                     >
                       Apply Now
                     </a>
@@ -330,7 +301,7 @@ export default function Navbar() {
 }
 
 /* ================================================================
-   DESKTOP NAV LINK
+   DESKTOP NAV LINK COMPONENT
 ================================================================ */
 
 function NavLink({
@@ -350,25 +321,25 @@ function NavLink({
         text-[14px]
         xl:text-[14.5px]
         font-semibold
-        text-navy/80
+        text-[#1e3c76]/85
         transition-colors
         duration-300
-        hover:text-green
+        hover:text-[#29aad8]
         whitespace-nowrap
       "
     >
       {children}
 
-      {/* Underline */}
+      {/* Underline - Cyan (#29aad8) */}
       <span
         className="
           absolute
           left-1/2
           bottom-1
-          h-[2px]
+          h-[2.5px]
           w-0
           rounded-full
-          bg-green
+          bg-[#29aad8]
           -translate-x-1/2
           transition-all
           duration-300
@@ -376,7 +347,7 @@ function NavLink({
         "
       />
 
-      {/* Small hover dot */}
+      {/* Subtle Hover Glow Spot */}
       <span
         className="
           absolute
@@ -385,14 +356,14 @@ function NavLink({
           w-2
           h-2
           rounded-full
-          bg-green
+          bg-[#1ba2bd]
           opacity-0
           scale-0
           -translate-x-1/2
           -translate-y-1/2
           transition-all
           duration-300
-          group-hover:opacity-[0.06]
+          group-hover:opacity-[0.08]
           group-hover:scale-[8]
           pointer-events-none
         "
@@ -402,7 +373,7 @@ function NavLink({
 }
 
 /* ================================================================
-   MOBILE NAV LINK
+   MOBILE NAV LINK COMPONENT
 ================================================================ */
 
 function MobileNavLink({
@@ -428,11 +399,11 @@ function MobileNavLink({
         rounded-2xl
         text-[15px]
         font-semibold
-        text-navy
+        text-[#1e3c76]
         transition-all
         duration-300
-        hover:bg-[#F0FBF7]
-        hover:text-green
+        hover:bg-[#29aad8]/10
+        hover:text-[#29aad8]
         hover:translate-x-1
       "
     >
@@ -440,7 +411,7 @@ function MobileNavLink({
 
       <span
         className="
-          text-green
+          text-[#29aad8]
           opacity-0
           -translate-x-2
           transition-all
@@ -456,41 +427,8 @@ function MobileNavLink({
 }
 
 /* ================================================================
-   ICONS
+   SVG ICONS
 ================================================================ */
-
-function PhoneIcon() {
-  return (
-    <svg
-      width="13"
-      height="13"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      aria-hidden="true"
-    >
-      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-    </svg>
-  );
-}
-
-function MailIcon() {
-  return (
-    <svg
-      width="13"
-      height="13"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      aria-hidden="true"
-    >
-      <path d="m22 6-10 7L2 6" />
-      <rect x="2" y="4" width="20" height="16" rx="2" />
-    </svg>
-  );
-}
 
 function MenuIcon() {
   return (

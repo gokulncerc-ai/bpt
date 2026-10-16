@@ -31,14 +31,14 @@ export default function Departments() {
       <section id="departments" className="bg-white">
         <div className="max-w-7xl mx-auto px-5 md:px-8 py-20 md:py-28">
           <Reveal className="max-w-2xl">
-            <span className="font-mono text-[12px] tracking-[0.2em] uppercase text-green font-semibold">
-              Departments
-            </span>
-            <h2 className="font-display text-[30px] md:text-[38px] font-semibold text-navy mt-3">
+            <span className="eyebrow">Departments</span>
+            <h2 className="section-title mt-3">
               Nine labs. One clinical mindset
             </h2>
-            <p className="mt-4 text-navy/65 leading-relaxed">
-              At PK Das College of Physiotherapy, our departments are designed to turn theory into patient-ready skill.
+            <div className="title-bar" />
+            <p className="mt-5 text-primary/70 leading-relaxed">
+              At P K Das College of Physiotherapy, our departments are designed
+              to turn theory into patient-ready skill.
             </p>
           </Reveal>
 
@@ -47,29 +47,30 @@ export default function Departments() {
               <Reveal
                 key={d.name}
                 delay={(i % 3) * 0.06}
-                className="bg-paper border border-mist rounded-2xl overflow-hidden card-hover flex flex-col"
+                className="group bg-paper border border-mist rounded-2xl overflow-hidden card-hover flex flex-col"
               >
-                {/* Department Image Container */}
-                <div className="relative w-full h-48 overflow-hidden bg-navy/5">
+                {/* Image */}
+                <div className="relative w-full h-48 overflow-hidden bg-primary/5">
                   <Image
                     src={departmentImages[i] || departmentone}
                     alt={d.name}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 hover:scale-105"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-primary/50 to-transparent" />
+                  {/* Brand strip */}
+                  <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-secondary via-aqua to-green" />
                 </div>
 
-                {/* Card Text Content */}
-                <div className="p-6 md:p-7 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="font-display font-semibold text-navy text-[18px]">
-                      {d.name}
-                    </h3>
-                    <p className="text-navy/60 text-[14px] mt-2 leading-relaxed">
-                      {d.text}
-                    </p>
-                  </div>
+                {/* Text */}
+                <div className="p-6 md:p-7 flex-1">
+                  <h3 className="font-display font-semibold text-primary text-[18px]">
+                    {d.name}
+                  </h3>
+                  <p className="text-primary/65 text-[14px] mt-2 leading-relaxed">
+                    {d.text}
+                  </p>
                 </div>
               </Reveal>
             ))}

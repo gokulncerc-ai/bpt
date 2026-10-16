@@ -3,6 +3,9 @@
 import { useState } from "react";
 import Reveal from "./Reveal";
 
+const APPLY_URL =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeNZi8r2gbHvLu9wPG5GALbA4HN3PeTT5cK1WyEh1pHMDBeFw/viewform";
+
 interface AccordionItemProps {
   title: string;
   isOpen: boolean;
@@ -12,25 +15,39 @@ interface AccordionItemProps {
 
 function AccordionItem({ title, isOpen, onToggle, children }: AccordionItemProps) {
   return (
-    <div className="border border-mist rounded-2xl bg-white overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md">
+    <div
+      className={`bg-white overflow-hidden rounded-2xl border transition-all duration-300 ${
+        isOpen
+          ? "border-secondary shadow-md"
+          : "border-mist shadow-sm hover:shadow-md hover:border-secondary/50"
+      }`}
+    >
       <button
         type="button"
         onClick={onToggle}
-        className="w-full flex items-center justify-between p-6 text-left transition-colors hover:bg-paper"
+        aria-expanded={isOpen}
+        className="w-full flex items-center justify-between gap-4 p-6 text-left transition-colors hover:bg-paper"
       >
-        <h3 className="font-display text-[18px] md:text-[20px] font-semibold text-navy">
+        <h3
+          className={`font-display text-[18px] md:text-[20px] font-semibold transition-colors ${
+            isOpen ? "text-secondary-dark" : "text-primary"
+          }`}
+        >
           {title}
         </h3>
         <span
-          className={`flex items-center justify-center w-8 h-8 rounded-full bg-paper border border-mist text-navy font-semibold text-lg transition-transform duration-300 ${isOpen ? "rotate-180 bg-green/10 text-green border-green/30" : ""
-            }`}
+          className={`flex shrink-0 items-center justify-center w-8 h-8 rounded-full border font-semibold text-lg transition-colors ${
+            isOpen
+              ? "bg-secondary text-white border-secondary"
+              : "bg-paper text-primary border-mist"
+          }`}
         >
           {isOpen ? "−" : "+"}
         </span>
       </button>
 
       {isOpen && (
-        <div className="px-6 pb-6 pt-2 text-navy/75 text-[15px] leading-relaxed border-t border-mist/60 animate-fadeIn">
+        <div className="px-6 pb-6 pt-4 text-primary/75 text-[15px] leading-relaxed border-t border-mist animate-fadeIn">
           {children}
         </div>
       )}
@@ -39,7 +56,7 @@ function AccordionItem({ title, isOpen, onToggle, children }: AccordionItemProps
 }
 
 export default function AdmissionsCTA() {
-  // Manage state for open accordion sections (defaults to opening BPT details)
+  // Which accordion section is open (BPT details open by default)
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleAccordion = (index: number) => {
@@ -79,21 +96,18 @@ export default function AdmissionsCTA() {
   return (
     <>
       {/* =========================================================
-          ADMISSION DETAILS SECTION (ACCORDION)
+          ADMISSION DETAILS (ACCORDION)
       ========================================================= */}
       <section id="admission-details" className="bg-paper py-20 md:py-28">
         <div className="max-w-5xl mx-auto px-5 md:px-8">
           <Reveal className="text-center max-w-2xl mx-auto mb-12">
-            <span className="font-mono text-[12px] tracking-[0.2em] uppercase text-green font-semibold">
-              Course &amp; Scope
-            </span>
-            <h2 className="font-display text-[32px] md:text-[42px] font-semibold text-navy mt-3">
-              Admission Details
-            </h2>
+            <span className="eyebrow">Course &amp; Scope</span>
+            <h2 className="section-title mt-3">Admission Details</h2>
+            <div className="title-bar mx-auto" />
           </Reveal>
 
           <Reveal className="space-y-4">
-            {/* ACCORDION ITEM 1 */}
+            {/* 1 */}
             <AccordionItem
               title="Bachelor of Physiotherapy (BPT)"
               isOpen={openIndex === 0}
@@ -101,15 +115,24 @@ export default function AdmissionsCTA() {
             >
               <div className="space-y-4">
                 <p>
-                  Physiotherapy is the provision of services to people and populations to develop, maintain, and restore maximum movement and functional ability throughout the lifespan. Physiotherapy is concerned with identifying and maximizing movement potential, within the spheres of promotion, prevention, treatment, and rehabilitation. It involves the interaction between physiotherapists, patients or clients, families, and caregivers, in a process of assessing movement potential and establishing agreed-upon goals and objectives using knowledge and skills unique to Physiotherapists.
+                  Physiotherapy is the provision of services to people and
+                  populations to develop, maintain, and restore maximum movement
+                  and functional ability throughout the lifespan. Physiotherapy
+                  is concerned with identifying and maximizing movement
+                  potential, within the spheres of promotion, prevention,
+                  treatment, and rehabilitation. It involves the interaction
+                  between physiotherapists, patients or clients, families, and
+                  caregivers, in a process of assessing movement potential and
+                  establishing agreed-upon goals and objectives using knowledge
+                  and skills unique to Physiotherapists.
                 </p>
-                <div className="inline-block bg-navy/5 px-4 py-2 rounded-lg font-mono text-[13.5px] text-navy font-semibold">
-                  Duration: <span className="text-green">5 Years</span>
+                <div className="inline-block bg-primary/5 border border-primary/10 px-4 py-2 rounded-lg text-[14px] text-primary font-semibold">
+                  Duration: <span className="text-green-dark">5 Years</span>
                 </div>
               </div>
             </AccordionItem>
 
-            {/* ACCORDION ITEM 2 */}
+            {/* 2 */}
             <AccordionItem
               title="Eligibility Criteria"
               isOpen={openIndex === 1}
@@ -117,40 +140,45 @@ export default function AdmissionsCTA() {
             >
               <div className="space-y-3">
                 <p>
-                  The eligibility for studying this course, the candidate has to get <strong>50% pass</strong> in the Higher Secondary Examination with Physics, Chemistry, Biology (or Botany and Zoology) as their main subjects.
+                  To be eligible for this course, the candidate must have passed
+                  the Higher Secondary Examination with at least{" "}
+                  <strong className="text-primary">50%</strong>, with Physics,
+                  Chemistry and Biology (or Botany and Zoology) as main
+                  subjects.
                 </p>
-                <div className="p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-900 text-[14px] font-medium flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-600" />
-                  NEET Appearance is mandatory.
+                <div className="p-3.5 bg-green-light border border-green/30 rounded-xl text-green-dark text-[14px] font-semibold flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-green" />
+                  NEET appearance is mandatory.
                 </div>
               </div>
             </AccordionItem>
 
-            {/* ACCORDION ITEM 3 */}
+            {/* 3 */}
             <AccordionItem
               title="Career Prospects & Job Profiles"
               isOpen={openIndex === 2}
               onToggle={() => toggleAccordion(2)}
             >
-              <ul className="grid sm:grid-cols-2 gap-2.5 pt-1">
+              <ul className="grid sm:grid-cols-2 gap-2.5">
                 {careerProfiles.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
-                    <span className="text-green font-bold mt-0.5">•</span>
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-green" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </AccordionItem>
-            {/* ACCORDION ITEM 4 */}
+
+            {/* 4 */}
             <AccordionItem
               title="Scope of Physiotherapy"
               isOpen={openIndex === 3}
               onToggle={() => toggleAccordion(3)}
             >
-              <ul className="grid sm:grid-cols-2 gap-2.5 pt-1">
+              <ul className="grid sm:grid-cols-2 gap-2.5">
                 {scopeFields.map((field, idx) => (
                   <li key={idx} className="flex items-start gap-2.5">
-                    <span className="text-green font-bold mt-0.5">•</span>
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-secondary" />
                     <span>{field}</span>
                   </li>
                 ))}
@@ -159,36 +187,43 @@ export default function AdmissionsCTA() {
           </Reveal>
         </div>
       </section>
+
       {/* =========================================================
-          CURRENT ADMISSIONS CTA SECTION
+          ADMISSIONS OPEN CTA
       ========================================================= */}
-      <section id="admissions" className="relative overflow-hidden bg-[#A8C0E0]">
+      <section
+        id="admissions"
+        className="relative overflow-hidden brand-gradient text-white"
+      >
+        <div className="absolute -left-20 -top-20 w-72 h-72 rounded-full bg-secondary/25 blur-3xl pointer-events-none" />
+        <div className="absolute -right-20 -bottom-24 w-80 h-80 rounded-full bg-green/25 blur-3xl pointer-events-none" />
+
         <div className="relative max-w-5xl mx-auto px-5 md:px-8 py-20 md:py-24 text-center">
           <Reveal>
-            <span className="font-mono text-[12px] tracking-[0.2em] uppercase text-navy font-semibold">
+            <span className="inline-block rounded-full bg-white/15 border border-white/25 px-4 py-1.5 text-[13px] font-semibold tracking-wide">
               Admissions Open
             </span>
-            <h2 className="font-display text-[30px] md:text-[42px] font-semibold text-navy mt-4 leading-tight">
+            <h2 className="font-display text-[28px] md:text-[42px] font-bold mt-5 leading-tight">
               Begin your career in physiotherapy at P K Das College.
             </h2>
-            <p className="mt-4 text-navy/80 max-w-xl mx-auto leading-relaxed">
-              Speak with our admission team or send in your application
-              seats for the new academic year are open.
+            <p className="mt-4 text-white/85 max-w-xl mx-auto leading-relaxed">
+              Speak with our admission team or send in your application. Seats
+              for the new academic year are open.
             </p>
             <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeNZi8r2gbHvLu9wPG5GALbA4HN3PeTT5cK1WyEh1pHMDBeFw/viewform"
+                href={APPLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-navy hover:bg-navy/90 transition rounded-full px-8 py-4 font-semibold text-[15px] text-white shadow-md"
+                className="bg-white text-primary hover:bg-secondary hover:text-white transition rounded-full px-8 py-4 font-bold text-[15px] shadow-lg"
               >
                 Apply Now
               </a>
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSeNZi8r2gbHvLu9wPG5GALbA4HN3PeTT5cK1WyEh1pHMDBeFw/viewform"
+                href={APPLY_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-navy/30 text-navy hover:bg-navy hover:text-white transition rounded-full px-8 py-4 font-semibold text-[15px]"
+                className="border border-white/70 text-white hover:bg-white hover:text-primary transition rounded-full px-8 py-4 font-bold text-[15px]"
               >
                 Enquire Now
               </a>

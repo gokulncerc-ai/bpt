@@ -1,71 +1,48 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+module.exports = {
   content: [
-    "./app/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        // Primary — Deep Teal (was navy). Kept the same token name ("navy")
-        // so every existing component (About, MissionVision, Departments,
-        // Contact, page backgrounds, etc.) picks up the new palette
-        // automatically with zero further edits.
-        navy: {
-          DEFAULT: "#0F766E", // Deep Teal — primary brand color
-          2: "#115E59",       // Dark Teal — hover / pressed states
-          3: "#14B8A6",       // Light Teal — gradient highlight accent
-        },
-        // Secondary — Emerald
-        green: {
-          DEFAULT: "#16A34A",
-          dark: "#15803D",
-        },
-        // Accent / CTA — Warm Amber
-        amber: {
-          DEFAULT: "#F59E0B",
-          dark: "#D97706",
-        },
-        paper: "#F8FAF9",   // Warm White background
-        mist: "#DDEAE6",    // Soft green-gray border
-        ink: "#17302E",     // Deep Charcoal Teal (main text)
-        slate: "#64748B",   // Muted text
+        primary: { DEFAULT: "#1e3c76", dark: "#142a54", light: "#2d5399" },
+        secondary: { DEFAULT: "#29aad8", dark: "#1b8fbb", light: "#8bd6ef" },
+        green: { DEFAULT: "#43ab5e", dark: "#2f8f48", light: "#e6f4ea" },
+        aqua: { DEFAULT: "#1ba2bd", dark: "#14869c" },
+
+        paper: "#f4f8fc",
+        mist: "#dce6f2",
+        ink: "#12244a",
+
+        // legacy aliases -> new palette
+        navy: { DEFAULT: "#1e3c76", 2: "#142a54" },
+        amber: { DEFAULT: "#29aad8", dark: "#1b8fbb" },
       },
       fontFamily: {
-        display: ["var(--font-fraunces)", "serif"],
-        body: ["var(--font-plex-sans)", "sans-serif"],
-        mono: ["var(--font-plex-mono)", "monospace"],
+        sans: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+        display: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+        body: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+        serif: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+        mono: ["var(--font-montserrat)", "system-ui", "sans-serif"],
       },
       keyframes: {
-        sweep: {
-          "0%": { transform: "rotate(0deg)" },
-          "45%": { transform: "rotate(-140deg)" },
-          "55%": { transform: "rotate(-140deg)" },
-          "100%": { transform: "rotate(0deg)" },
-        },
         fadeUp: {
-          from: { opacity: "0", transform: "translateY(16px)" },
-          to: { opacity: "1", transform: "translateY(0)" },
-        },
-        fadeDown: {
-          from: { opacity: "0", transform: "translateY(-8px)" },
-          to: { opacity: "1", transform: "translateY(0)" },
+          "0%": { opacity: "0", transform: "translateY(24px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
         fadeIn: {
-          from: { opacity: "0" },
-          to: { opacity: "1" },
+          "0%": { opacity: "0", transform: "translateY(-4px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
       animation: {
-        sweep: "sweep 5s cubic-bezier(.65,0,.35,1) infinite",
-        fadeUp: "fadeUp .7s ease both",
-        fadeDown: "fadeDown .25s ease both",
-        fadeIn: "fadeIn .25s ease both",
+        fadeUp: "fadeUp 0.8s ease-out both",
+        fadeIn: "fadeIn 0.3s ease-out both",
       },
     },
   },
   plugins: [],
 };
-
-export default config;

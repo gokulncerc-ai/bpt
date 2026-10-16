@@ -7,21 +7,74 @@ html {
 }
 
 body {
-  background: #f5f7f6;
+  background: #f4f8fc;
+  color: #12244a;
 }
 
+::selection {
+  background: #29aad8;
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid #29aad8;
+  outline-offset: 3px;
+}
+
+/* Shared building blocks.
+   Plain CSS (no @apply) so the build never depends on custom Tailwind colours. */
+@layer components {
+  /* Small label above section headings */
+  .eyebrow {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    color: #1b8fbb; /* secondary-dark */
+  }
+
+  /* Section headings */
+  .section-title {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: #1e3c76; /* primary */
+  }
+  @media (min-width: 768px) {
+    .section-title {
+      font-size: 38px;
+    }
+  }
+
+  /* Brand gradient (navy -> aqua) for CTA / dark panels */
+  .brand-gradient {
+    background-image: linear-gradient(135deg, #1e3c76 0%, #1b6aa0 55%, #1ba2bd 100%);
+  }
+
+  /* Short underline bar under headings */
+  .title-bar {
+    margin-top: 1rem;
+    height: 4px;
+    width: 4rem;
+    border-radius: 9999px;
+    background-image: linear-gradient(90deg, #29aad8, #43ab5e);
+  }
+}
+
+/* Dotted divider between sections */
 .tick-rule {
   position: relative;
   height: 2px;
 }
-
 .tick-rule::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: repeating-linear-gradient(90deg,
-      #ddeae6 0 1px,
-      transparent 1px 14px);
+  background-image: repeating-linear-gradient(
+    90deg,
+    #29aad8 0 2px,
+    transparent 2px 14px
+  );
+  opacity: 0.35;
 }
 
 .card-hover {
@@ -30,20 +83,23 @@ body {
     box-shadow 0.35s ease,
     border-color 0.35s ease;
 }
-
 .card-hover:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px -18px rgba(15, 118, 110, 0.35);
-  border-color: #16a34a;
+  box-shadow: 0 20px 40px -18px rgba(30, 60, 118, 0.35);
+  border-color: #29aad8;
 }
 
 .needle {
   transform-origin: 210px 210px;
 }
-
 @media (prefers-reduced-motion: reduce) {
   .needle {
     animation: none !important;
+  }
+  .card-hover,
+  .card-hover:hover {
+    transition: none;
+    transform: none;
   }
 }
 
@@ -54,7 +110,6 @@ body {
     opacity 0.7s ease,
     transform 0.7s ease;
 }
-
 .reveal.in-view {
   opacity: 1;
   transform: translateY(0);
