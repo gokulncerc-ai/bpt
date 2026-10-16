@@ -90,14 +90,14 @@ export default function Hero() {
 
           {/* Buttons */}
           <div className="mt-9 flex flex-wrap items-center gap-4">
-            <a
-              href={APPLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-secondary hover:bg-secondary-dark text-white transition rounded-full px-8 py-3.5 font-bold text-[15px] shadow-[0_14px_30px_-10px_rgba(41,170,216,.7)]"
-            >
-              Apply Now
-            </a>
+          <a
+            href={APPLY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#43ab5e] hover:bg-[#389450] text-white transition-all duration-300 rounded-full px-8 py-3.5 font-bold text-[15px] shadow-[0_14px_30px_-10px_rgba(67,171,94,0.65)] hover:-translate-y-0.5 hover:shadow-[0_18px_35px_-10px_rgba(67,171,94,0.75)]"
+          >
+            Apply Now
+          </a>
             <a
               href={APPLY_URL}
               target="_blank"

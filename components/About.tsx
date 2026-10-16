@@ -6,9 +6,12 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-5 md:px-8 py-20 md:py-28 grid lg:grid-cols-[0.85fr_1.15fr] gap-14 items-start">
         <Reveal>
           <span className="eyebrow">Welcome</span>
-          <h2 className="section-title mt-3">
-            P K Das College
-            <br className="hidden md:block" /> of Physiotherapy
+          <h2 className="section-title mt-3 font-sans font-extrabold uppercase tracking-tight">
+            <span className="text-[#1e3c76]">PK</span>{" "}
+            <span className="text-[#29aad8]">DAS</span>{" "}
+            <span className="text-[#1e3c76]">COLLEGE</span>
+            <br className="hidden md:block" />
+            <span className="text-[#1e3c76]">OF PHYSIOTHERAPY</span>
           </h2>
           <div className="title-bar" />
           <p className="mt-6 text-primary/75 leading-relaxed">

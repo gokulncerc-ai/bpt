@@ -12,13 +12,13 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-4">
             {/* The logo has navy text, so it sits on a white tile */}
-            <div className="shrink-0 rounded-xl bg-white p-2 shadow-md">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-white p-2.5 shadow-md border border-slate-100">
               <Image
-                src="/BPTLOGO2.png"
+                src="/BPTLOGO.png"
                 alt="P K Das College of Physiotherapy logo"
                 width={72}
-                height={50}
-                className="h-12 w-auto object-contain"
+                height={72}
+                className="h-full w-full object-contain"
               />
             </div>
             <div className="font-display text-white font-bold text-[16px] leading-snug">
