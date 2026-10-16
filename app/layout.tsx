@@ -21,6 +21,12 @@ export const metadata: Metadata = {
     "BPT Kerala",
     "KUHS physiotherapy",
   ],
+  // Favicon: the file lives in D:\BPT\public\BPTLOGO.png
+  icons: {
+    icon: "/BPTLOGO.png",
+    shortcut: "/BPTLOGO.png",
+    apple: "/BPTLOGO.png",
+  },
 };
 
 export default function RootLayout({
