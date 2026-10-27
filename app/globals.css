@@ -22,6 +22,34 @@ iframe {
   max-width: 100%;
 }
 
+/* ---------- Justified body text ----------
+   Applies to paragraphs and list items only.
+   Skipped for anything the design explicitly centres / right-aligns,
+   so hero text, CTA text and centred section intros stay as designed. */
+   p:not(
+    [class*="text-center"],
+    [class*="text-center"] *,
+    [class*="text-right"],
+    [class*="text-right"] *,
+    [class*="text-left"],
+    [class*="text-left"] *
+  ),
+li:not(
+    [class*="text-center"],
+    [class*="text-center"] *,
+    [class*="text-right"],
+    [class*="text-right"] *,
+    [class*="text-left"],
+    [class*="text-left"] *
+  ) {
+  text-align: justify;
+  text-align-last: left; /* last line stays left-aligned */
+  text-justify: inter-word;
+  hyphens: auto; /* uses lang="en" from layout.tsx; avoids wide gaps on phones */
+  -webkit-hyphens: auto;
+  overflow-wrap: break-word;
+}
+
 img,
 video {
   height: auto;
