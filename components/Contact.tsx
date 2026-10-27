@@ -3,8 +3,8 @@ import { contact } from "@/lib/content";
 
 export default function Contact() {
   return (
-    <section id="contact" className="bg-paper">
-      <div className="max-w-7xl mx-auto px-5 md:px-8 py-20 md:py-28">
+    <section id="contact" className="bg-paper overflow-x-clip">
+      <div className="max-w-7xl mx-auto px-4 sm:px-5 md:px-8 py-16 md:py-28">
         {/* ---------- Header ---------- */}
         <Reveal className="max-w-2xl">
           <span className="eyebrow">Reach Now</span>
@@ -12,9 +12,10 @@ export default function Contact() {
           <div className="title-bar" />
         </Reveal>
 
-        <div className="mt-12 grid lg:grid-cols-[0.9fr_1.1fr] gap-8">
+        {/* grid-cols-1 = minmax(0,1fr): the column can never grow wider than the screen */}
+        <div className="mt-10 md:mt-12 grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-6 lg:gap-8">
           {/* ---------- Contact info ---------- */}
-          <Reveal className="space-y-6">
+          <Reveal className="min-w-0 space-y-5 sm:space-y-6">
             <InfoCard accent="primary" icon={<LocationIcon />} title="Campus Address">
               {contact.institution}
               <br />
@@ -39,7 +40,7 @@ export default function Contact() {
             <InfoCard accent="green" icon={<MailIcon />} title="Admission Mail">
               <a
                 href={`mailto:${contact.email}`}
-                className="block font-semibold hover:text-secondary-dark transition-colors"
+                className="block font-semibold hover:text-secondary-dark transition-colors [overflow-wrap:anywhere]"
               >
                 {contact.email}
               </a>
@@ -47,21 +48,26 @@ export default function Contact() {
           </Reveal>
 
           {/* ---------- Map ---------- */}
-          <Reveal delay={0.1}>
-            <div className="relative w-full h-[430px] md:h-[500px] rounded-2xl overflow-hidden border border-mist bg-white shadow-[0_12px_35px_rgba(30,60,118,0.12)]">
-              <iframe
-                title="P K DAS COLLEGE OF PHYSIOTHERAPY"
-                className="absolute inset-0 w-full h-full border-0"
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                src={contact.mapEmbedSrc}
-              />
+          <Reveal className="min-w-0" delay={0.1}>
+            <div className="relative w-full rounded-2xl overflow-hidden border border-mist bg-white shadow-[0_12px_35px_rgba(30,60,118,0.12)]">
+              {/* Map area */}
+              <div className="relative w-full h-[300px] sm:h-[460px] md:h-[500px]">
+                <iframe
+                  title="P K DAS COLLEGE OF PHYSIOTHERAPY"
+                  className="absolute inset-0 w-full h-full border-0"
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  src={contact.mapEmbedSrc}
+                />
+              </div>
 
-              {/* Location badge + button */}
-              <div className="absolute left-4 right-4 bottom-4 flex flex-col sm:flex-row justify-between items-stretch sm:items-end gap-3">
-                <div className="bg-white/95 backdrop-blur-md rounded-xl px-4 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.12)] border-l-4 border-secondary">
-                  <div className="font-display font-bold text-primary text-[13.5px]">
+              {/* Location badge + button:
+                  - mobile: sits BELOW the map so it never covers it
+                  - sm and up: floats over the bottom of the map */}
+              <div className="flex flex-col gap-3 p-4 sm:p-0 sm:absolute sm:left-4 sm:right-4 sm:bottom-4 sm:flex-row sm:items-end sm:justify-between">
+                <div className="min-w-0 bg-white/95 sm:backdrop-blur-md rounded-xl px-4 py-3 sm:shadow-[0_10px_30px_rgba(0,0,0,0.12)] border border-mist sm:border-0 border-l-4 border-l-secondary sm:border-l-4">
+                  <div className="font-display font-bold text-primary text-[13px] sm:text-[13.5px] leading-snug">
                     P K DAS COLLEGE OF PHYSIOTHERAPY
                   </div>
                   <div className="text-primary/65 text-[12px] mt-0.5">
@@ -76,7 +82,7 @@ export default function Contact() {
                   href={contact.mapLinkHref}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-primary hover:bg-secondary transition-all duration-300 text-white text-[13px] font-semibold rounded-xl px-4 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.18)] flex items-center justify-center gap-2 whitespace-nowrap hover:-translate-y-0.5"
+                  className="shrink-0 bg-primary hover:bg-secondary transition-all duration-300 text-white text-[13px] font-semibold rounded-xl px-4 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.18)] flex items-center justify-center gap-2 hover:-translate-y-0.5"
                 >
                   Open in Google Maps
                   <ExternalIcon />
@@ -109,15 +115,15 @@ function InfoCard({
 
   return (
     <div
-      className={`bg-white border border-mist border-l-4 ${styles.bar} rounded-2xl p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(30,60,118,0.12)]`}
+      className={`w-full min-w-0 bg-white border border-mist border-l-4 ${styles.bar} rounded-2xl p-5 sm:p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(30,60,118,0.12)]`}
     >
-      <div className="flex items-start gap-4">
+      <div className="flex items-start gap-3 sm:gap-4">
         <div
           className={`shrink-0 w-10 h-10 rounded-full flex items-center justify-center ${styles.icon}`}
         >
           {icon}
         </div>
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <div className="font-display font-bold text-primary text-[16px]">
             {title}
           </div>
