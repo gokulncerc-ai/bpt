@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 
@@ -9,6 +9,12 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#1e3c76",
+};
 
 export const metadata: Metadata = {
   title: "Best Physiotherapy Colleges in Kerala | Top BPT Colleges in Palakkad",
@@ -41,7 +47,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={montserrat.variable}>
-      <body className="font-body text-ink antialiased bg-paper">
+      <body className="font-body text-ink antialiased bg-paper overflow-x-clip">
         {children}
       </body>
     </html>

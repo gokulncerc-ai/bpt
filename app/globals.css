@@ -4,11 +4,27 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   background: #f4f8fc;
   color: #12244a;
+  overflow-x: clip;
+  min-width: 320px;
+}
+
+img,
+video,
+svg,
+iframe {
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
 }
 
 ::selection {
