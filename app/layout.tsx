@@ -11,10 +11,15 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "P K Das College of Physiotherapy | Ottapalam, Palakkad",
+  title: "Best Physiotherapy Colleges in Kerala | Top BPT Colleges in Palakkad",
   description:
-    "P K Das College of Physiotherapy, Vaniyamkulam, Ottapalam, Palakkad — a KUHS-affiliated physiotherapy programme with hospital-linked clinical training. Apply now or enquire about admissions 2026-27.",
+    "P K Das College of Physiotherapy is one of the best physiotherapy colleges in Kerala, offering a KUHS-affiliated programme with hands-on clinical exposure.",
   keywords: [
+    "Best Physiotherapy College in Kerala",
+    "Top Physiotherapy College in Kerala",
+    "Physiotherapy Colleges in Kerala",
+    "BPT Colleges in Kerala",
+    "BPT College in Palakkad",
     "physiotherapy college Palakkad",
     "physiotherapy course Ottapalam",
     "P K Das College of Physiotherapy",
