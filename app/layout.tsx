@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 // One typeface for the whole site (matches the logo wordmark).
@@ -32,6 +33,10 @@ export const metadata: Metadata = {
     "BPT Kerala",
     "KUHS physiotherapy",
   ],
+  // Google Search Console verification (renders <meta name="google-site-verification" ...>)
+  verification: {
+    google: "pUGZe9Hi99MCs1t4_Ncc0ERZP9upRuSvr-0jHRWqSmE",
+  },
   // Favicon: the file lives in D:\BPT\public\BPTLOGO.png
   icons: {
     icon: "/BPTLOGO.png",
@@ -48,6 +53,21 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserrat.variable}>
       <body className="font-body text-ink antialiased bg-paper overflow-x-clip">
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PGP2GRRJEN"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-PGP2GRRJEN');
+          `}
+        </Script>
+
         {children}
       </body>
     </html>
