@@ -111,12 +111,10 @@ export async function POST(req: Request) {
   try {
     stage = "storage-check";
     assertStorageReady();
-
     stage = "counter";
     const number = await nextApplicationNumber();
     const padded = String(number).padStart(3, "0");
     const applicationNo = `${APPLICATION_PREFIX} - ${padded}`;
-
     const stamp = istStamp(new Date());
     const rand = crypto.randomBytes(3).toString("hex");
     const fileName = `${stamp.date}_${stamp.time}_${APPLICATION_PREFIX.toLowerCase()}-${padded}_${slugify(values.applicantName)}_${rand}.pdf`;
