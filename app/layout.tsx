@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { SITE_URL } from "@/lib/siteUrl";
+
 // One typeface for the whole site (matches the logo wordmark).
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -19,7 +20,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Best Physiotherapy Colleges in Kerala | Top BPT Colleges in Palakkad",
+  title: "PK Das College of Physiotherapy | Best BPT Colleges in Palakkad",
   description:
     "P K Das College of Physiotherapy is one of the best physiotherapy colleges in Kerala, offering a KUHS-affiliated programme with hands-on clinical exposure.",
   keywords: [
@@ -34,10 +35,32 @@ export const metadata: Metadata = {
     "BPT Kerala",
     "KUHS physiotherapy",
   ],
+
+  // Say clearly that the site may be indexed (this is also the default; stating it removes any doubt).
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+
+  // Link previews (WhatsApp, Facebook, etc.). Each page's own title/description is used.
+  openGraph: {
+    type: "website",
+    siteName: "P K Das College of Physiotherapy",
+    locale: "en_IN",
+    images: [{ url: "/BPTLOGO3.png", alt: "P K Das College of Physiotherapy" }],
+  },
+
   // Google Search Console verification (renders <meta name="google-site-verification" ...>)
   verification: {
     google: "pUGZe9Hi99MCs1t4_Ncc0ERZP9upRuSvr-0jHRWqSmE",
   },
+
   // Favicon: the file lives in D:\BPT\public\BPTLOGO.png
   icons: {
     icon: "/BPTLOGO.png",
