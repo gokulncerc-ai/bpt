@@ -5,12 +5,15 @@ import { AppError } from "./errors";
 import { uploadDir } from "./uploads";
 
 /** Finds the Blob token, even if a custom prefix was used when connecting the store. */
-function blobToken(): string | undefined {
+export function blobToken(): string | undefined {
   if (process.env.BLOB_READ_WRITE_TOKEN) return process.env.BLOB_READ_WRITE_TOKEN;
   const name = Object.keys(process.env).find((k) => k.endsWith("_READ_WRITE_TOKEN"));
   return name ? process.env[name] : undefined;
 }
 
+export const BLOB_ACCESS: "public" | "private" =
+  process.env.BLOB_ACCESS === "public" ? "public" : "private";
+  
 /** Call this BEFORE using up an application number. */
 export function assertStorageReady(): void {
   if (process.env.VERCEL && !blobToken()) {

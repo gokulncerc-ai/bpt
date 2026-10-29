@@ -107,7 +107,7 @@ export async function POST(req: Request) {
   for (const k of ["fatherName", "motherName", "religion", "claim", "bank"]) {
     values[k] = ucwords(values[k]);
   }
-
+  let stage = "start";
   try {
     assertStorageReady(); 
     // 1) application number
@@ -155,8 +155,12 @@ export async function POST(req: Request) {
       pdfBase64: Buffer.from(pdfBytes).toString("base64"),
     });
   } catch (err) {
-    console.error(`[application ${ref}] failed:`, err);
-    if (err instanceof AppError) return fail(err.userMessage, err.status);
-    return fail("We could not save your application. Please try again.", 500);
+    const cause = err instanceof Error && err.cause instanceof Error ? ` | ${err.cause.message}` : "";
+    const detail = err instanceof Error ? `${err.message}${cause}` : String(err);
+    console.error(`[application ${ref}] failed at "${stage}":`, err);
+    // Temporary: set DEBUG_APPLICATION=1 in Vercel to show the cause on the page.
+    const debug = process.env.DEBUG_APPLICATION === "1" ? ` [${stage}: ${detail}]` : "";
+    if (err instanceof AppError) return fail(err.userMessage + debug, err.status);
+    return fail("We could not save your application. Please try again." + debug, 500);
   }
 }
