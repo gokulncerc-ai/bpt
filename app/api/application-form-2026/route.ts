@@ -1,6 +1,4 @@
 import crypto from "node:crypto";
-import fs from "node:fs/promises";
-import path from "node:path";
 import { NextResponse } from "next/server";
 import {
   ALL_KEYS,
@@ -12,14 +10,16 @@ import {
 } from "@/lib/applicationFields";
 import { buildApplicationPdf, istStamp, slugify } from "@/lib/applicationPdf";
 import { nextApplicationNumber } from "@/lib/counter";
+import { AppError } from "@/lib/errors";
 import { toPdfJpeg } from "@/lib/images";
 import { sendApplicationEmails } from "@/lib/mailer";
-import { uploadDir } from "@/lib/uploads";
+import { saveApplicationPdf } from "@/lib/storage";
 
 export const runtime = "nodejs"; // file system + image processing
 export const dynamic = "force-dynamic";
+export const maxDuration = 60;
 
-/* Tiny in-memory rate limit: 5 submissions / 10 minutes per IP. */
+/* Tiny in-memory rate limit: 5 submissions / 10 minutes per IP (per server instance). */
 const hits = new Map<string, number[]>();
 function tooMany(ip: string): boolean {
   const now = Date.now();
@@ -33,6 +33,10 @@ const asFile = (v: FormDataEntryValue | null): File | null =>
   v && typeof v !== "string" ? v : null;
 
 export async function POST(req: Request) {
+  const ref = crypto.randomBytes(3).toString("hex"); // quote this to the college if something fails
+  const fail = (message: string, status: number) =>
+    NextResponse.json({ error: `${message} (Ref: ${ref})` }, { status });
+
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "local";
   if (tooMany(ip)) {
     return NextResponse.json(
@@ -44,16 +48,16 @@ export async function POST(req: Request) {
   let form: FormData;
   try {
     form = await req.formData();
-  } catch {
-    return NextResponse.json({ error: "Invalid request." }, { status: 400 });
+  } catch (err) {
+    console.error(`[application ${ref}] could not read form data:`, err);
+    return fail("We could not read your form. Please check your photo and signature sizes and try again.", 400);
   }
 
-  // Honeypot: real people never fill this hidden field, bots do.
+  // Honeypot
   if (String(form.get("website") ?? "").trim() !== "") {
     return NextResponse.json({ ok: true, applicationNo: "RECEIVED" });
   }
 
-  // Only the known fields, as trimmed strings.
   const values = emptyValues();
   for (const k of ALL_KEYS) {
     const raw = form.get(k);
@@ -80,7 +84,6 @@ export async function POST(req: Request) {
     return NextResponse.json({ errors }, { status: 400 });
   }
 
-  // Convert both images to a PDF-safe JPEG (handles WebP / phone photos).
   let photoJpeg: Buffer;
   let signatureJpeg: Buffer;
   try {
@@ -100,36 +103,40 @@ export async function POST(req: Request) {
     );
   }
 
-  // Tidy the text the same way the PHP version did (strtoupper / ucwords).
   values.applicantName = values.applicantName.toUpperCase().replace(/\s+/g, " ");
   for (const k of ["fatherName", "motherName", "religion", "claim", "bank"]) {
     values[k] = ucwords(values[k]);
   }
 
   try {
+    // 1) application number
     const number = await nextApplicationNumber();
     const padded = String(number).padStart(3, "0");
     const applicationNo = `${APPLICATION_PREFIX} - ${padded}`;
 
     const stamp = istStamp(new Date());
-    const rand = crypto.randomBytes(3).toString("hex"); // makes the file name hard to guess
-
-    // 2026-10-28_14-35-02_pkdcp-001_anu-k-s_a1b2c3.pdf  -> sorts by date and time
+    const rand = crypto.randomBytes(3).toString("hex");
     const fileName = `${stamp.date}_${stamp.time}_${APPLICATION_PREFIX.toLowerCase()}-${padded}_${slugify(values.applicantName)}_${rand}.pdf`;
 
-    const pdfBytes = await buildApplicationPdf({
-      values,
-      applicationNo,
-      submittedAt: stamp.pretty,
-      photoJpeg,
-      signatureJpeg,
-    });
+    // 2) build the PDF
+    let pdfBytes: Uint8Array;
+    try {
+      pdfBytes = await buildApplicationPdf({
+        values,
+        applicationNo,
+        submittedAt: stamp.pretty,
+        photoJpeg,
+        signatureJpeg,
+      });
+    } catch (cause) {
+      throw new AppError("We could not create your application PDF. Please try again.", 500, { cause });
+    }
 
-    const dir = uploadDir();
-    await fs.mkdir(dir, { recursive: true });
-    await fs.writeFile(path.join(dir, fileName), pdfBytes, { flag: "wx" });
+    // 3) store it
+    const savedTo = await saveApplicationPdf(fileName, pdfBytes);
+    console.log(`[application ${ref}] ${applicationNo} saved: ${savedTo}`);
 
-    // Email a copy to the college and the applicant (only if SMTP is configured).
+    // 4) email copies (never fails the request)
     const downloadName = `${APPLICATION_PREFIX}-${padded}_${slugify(values.applicantName)}.pdf`;
     const mail = await sendApplicationEmails({
       applicantEmail: values.email,
@@ -147,10 +154,8 @@ export async function POST(req: Request) {
       pdfBase64: Buffer.from(pdfBytes).toString("base64"),
     });
   } catch (err) {
-    console.error("Failed to save application PDF:", err);
-    return NextResponse.json(
-      { error: "We could not save your application. Please try again." },
-      { status: 500 }
-    );
+    console.error(`[application ${ref}] failed:`, err);
+    if (err instanceof AppError) return fail(err.userMessage, err.status);
+    return fail("We could not save your application. Please try again.", 500);
   }
 }

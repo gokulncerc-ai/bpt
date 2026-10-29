@@ -1,16 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // NOTE: do NOT add  output: "export"  here. The application form needs a Node server
-  // (it receives the form and saves the PDF), and a static export has no server.
-  images: {
-    unoptimized: true,
-  },
-
-  // Every page address ends with "/", e.g. /application-form-2026/
-  // (canonical link, sitemap and the form's request are all written to match this)
+  images: { unoptimized: true },
   trailingSlash: true,
-
   poweredByHeader: false,
+
+  // make sure the logo is bundled with the API function on Vercel
+  outputFileTracingIncludes: {
+    "/api/application-form-2026": ["./public/BPTLOGO3.png"],
+  },
 };
 
 module.exports = nextConfig;
