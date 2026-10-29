@@ -3,10 +3,9 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-import collegeImage from "../public/college_pic.jpg";
+import collegeImage from "../public/college_pic.jpeg";
 import collegeImage1 from "../public/collegeone.jpeg";
 import collegeImage2 from "../public/collegetwo.jpeg";
-import collegeImage3 from "../public/collegethree.jpg";
 import collegeStudents1 from "../public/collegestud.jpg";
 import PhysiotherapyStudents2 from "../public/collegestuds.jpg";
 
@@ -17,14 +16,12 @@ const heroImages = [
   { src: collegeImage, alt: "P K Das College of Physiotherapy campus" },
   { src: collegeImage1, alt: "P K Das College campus" },
   { src: collegeImage2, alt: "P K Das College facilities" },
-  { src: collegeImage3, alt: "P K Das College infrastructure" },
   { src: collegeStudents1, alt: "P K Das College students" },
   { src: PhysiotherapyStudents2, alt: "P K Das College of Physiotherapy students" },
 ];
 
 export default function Hero() {
   const [currentImage, setCurrentImage] = useState(0);
-
   // Change the background image every 4 seconds.
   useEffect(() => {
     const interval = setInterval(() => {
@@ -32,7 +29,6 @@ export default function Hero() {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
-
   return (
     <section className="relative min-h-[680px] md:min-h-[760px] lg:min-h-[800px] overflow-hidden text-white">
       {/* ---------- Background carousel ---------- */}

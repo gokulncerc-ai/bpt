@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-
+import { SITE_URL } from "@/lib/siteUrl";
 // One typeface for the whole site (matches the logo wordmark).
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -18,6 +18,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Best Physiotherapy Colleges in Kerala | Top BPT Colleges in Palakkad",
   description:
     "P K Das College of Physiotherapy is one of the best physiotherapy colleges in Kerala, offering a KUHS-affiliated programme with hands-on clinical exposure.",
