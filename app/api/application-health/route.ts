@@ -12,13 +12,23 @@ const msg = (e: unknown) => (e instanceof Error ? e.message : String(e));
 
 export async function GET(req: Request) {
   const key = process.env.HEALTH_KEY;
-  if (!key || new URL(req.url).searchParams.get("key") !== key) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  if (!key) {
+    return NextResponse.json(
+      { error: "HEALTH_KEY is not set in this deployment. Add it in Vercel, then Redeploy." },
+      { status: 503 }
+    );
+  }
+  if (new URL(req.url).searchParams.get("key") !== key) {
+    return NextResponse.json({ error: "Wrong key" }, { status: 403 });
   }
 
-  const out: Record<string, string> = {
+  const out: Record<string, unknown> = {
     node: process.version,
     vercel: process.env.VERCEL ? "yes" : "no",
+    // names only, never values
+    storageEnvNamesSeen: Object.keys(process.env).filter((k) =>
+      /BLOB|KV_|UPSTASH|REDIS|READ_WRITE/i.test(k)
+    ),
     blobToken: blobToken() ? "found" : "MISSING",
     redisUrl: process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL ? "found" : "MISSING",
     redisToken: process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN ? "found" : "MISSING",
@@ -26,8 +36,9 @@ export async function GET(req: Request) {
   };
 
   try {
-    const url = (process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL)!;
-    const token = (process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN)!;
+    const url = process.env.UPSTASH_REDIS_REST_URL || process.env.KV_REST_API_URL;
+    const token = process.env.UPSTASH_REDIS_REST_TOKEN || process.env.KV_REST_API_TOKEN;
+    if (!url || !token) throw new Error("Redis variables missing");
     out.redis = "ok: " + (await new Redis({ url, token }).ping());
   } catch (e) {
     out.redis = "FAILED: " + msg(e);

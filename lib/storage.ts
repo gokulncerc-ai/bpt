@@ -13,7 +13,7 @@ export function blobToken(): string | undefined {
 
 export const BLOB_ACCESS: "public" | "private" =
   process.env.BLOB_ACCESS === "public" ? "public" : "private";
-  
+
 /** Call this BEFORE using up an application number. */
 export function assertStorageReady(): void {
   if (process.env.VERCEL && !blobToken()) {
@@ -32,15 +32,18 @@ export async function saveApplicationPdf(fileName: string, bytes: Uint8Array): P
 
   if (token) {
     try {
-      const blob = await put(`applications/${fileName}`, Buffer.from(bytes), {
+    const blob = await put(`applications/${fileName}`, Buffer.from(bytes), {
         token,
-        access: "private", // matches your Private store: PDFs are not reachable by a public link
+        access: BLOB_ACCESS,
         contentType: "application/pdf",
         addRandomSuffix: false,
       });
       return blob.pathname;
     } catch (cause) {
-      console.error("Blob upload failed:", cause);
+    console.error(
+            "Storage not configured. Env names seen:",
+            Object.keys(process.env).filter((k) => /BLOB|READ_WRITE/i.test(k))
+          );
       throw new AppError(
         "Your application could not be stored on the server. Please try again in a few minutes.",
         502,

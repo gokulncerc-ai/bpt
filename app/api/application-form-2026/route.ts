@@ -109,8 +109,10 @@ export async function POST(req: Request) {
   }
   let stage = "start";
   try {
-    assertStorageReady(); 
-    // 1) application number
+    stage = "storage-check";
+    assertStorageReady();
+
+    stage = "counter";
     const number = await nextApplicationNumber();
     const padded = String(number).padStart(3, "0");
     const applicationNo = `${APPLICATION_PREFIX} - ${padded}`;
