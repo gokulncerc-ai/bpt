@@ -12,8 +12,8 @@ import { buildApplicationPdf, istStamp, slugify } from "@/lib/applicationPdf";
 import { nextApplicationNumber } from "@/lib/counter";
 import { AppError } from "@/lib/errors";
 import { toPdfJpeg } from "@/lib/images";
+import { assertStorageReady, saveApplicationPdf } from "@/lib/storage";
 import { sendApplicationEmails } from "@/lib/mailer";
-import { saveApplicationPdf } from "@/lib/storage";
 
 export const runtime = "nodejs"; // file system + image processing
 export const dynamic = "force-dynamic";
@@ -109,6 +109,7 @@ export async function POST(req: Request) {
   }
 
   try {
+    assertStorageReady(); 
     // 1) application number
     const number = await nextApplicationNumber();
     const padded = String(number).padStart(3, "0");
