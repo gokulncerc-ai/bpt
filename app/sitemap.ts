@@ -7,8 +7,8 @@ import { SITE_URL } from "@/lib/siteUrl";
 // lastModified: set the date when the PAGE CONTENT really changed.
 // (Using "today" on every build tells Google that everything changed every time,
 //  and Google then learns to ignore the date.)
-const HOME_UPDATED = "2026-10-29";
-const FORM_UPDATED = "2026-10-29";
+const HOME_UPDATED = "2026-10-30";
+const FORM_UPDATED = "2026-10-30";
 
 // To add a page later, add one more entry to this list.
 export default function sitemap(): MetadataRoute.Sitemap {
