@@ -1,5 +1,10 @@
+import Link from "next/link";
 import Reveal from "./Reveal";
 
+// The page that opens when someone clicks "Kerala University of Health Sciences (KUHS)".
+// Change this one line to point to your page. Keep the trailing "/" (next.config.js has trailingSlash: true).
+// The page must exist, e.g. D:\BPT\app\kuhs-affiliation\page.tsx for "/kuhs-affiliation/".
+const KUHS_PAGE = "https://www.pkdascollegeofphysiotherapy.com/#admissions";
 export default function About() {
   return (
     <section id="about" className="bg-white">
@@ -29,9 +34,12 @@ export default function About() {
           <p>
             Located at Vaniyamkulam, Ottapalam, Palakkad, P K Das College of
             Physiotherapy is affiliated with the{" "}
-            <strong className="text-primary">
+            <Link
+              href={KUHS_PAGE}
+              className="font-bold text-primary decoration-secondary decoration-2 underline-offset-4 transition-colors hover:text-secondary-dark"
+            >
               Kerala University of Health Sciences (KUHS)
-            </strong>
+            </Link>
             . P K Das College of Physiotherapy is committed to nurturing
             skilled, compassionate and competent Physiotherapy professionals
             who can contribute meaningfully to the healthcare sector.
