@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { contact } from "@/lib/content";
 
@@ -40,24 +41,29 @@ export default function Footer() {
           </div>
           <ul className="space-y-2.5 text-[14px]">
             <li>
-              <a href="#about" className="hover:text-secondary-light transition">
+              <a href="/#about" className="hover:text-secondary-light transition">
                 About the College
               </a>
             </li>
             <li>
-              <a href="#mission" className="hover:text-secondary-light transition">
+              <a href="/#mission" className="hover:text-secondary-light transition">
                 Mission &amp; Vision
               </a>
             </li>
             <li>
-              <a href="#departments" className="hover:text-secondary-light transition">
+              <a href="/#departments" className="hover:text-secondary-light transition">
                 Departments
               </a>
             </li>
             <li>
-              <a href="#admissions" className="hover:text-secondary-light transition">
+              <a href="/#admissions" className="hover:text-secondary-light transition">
                 Admissions
               </a>
+            </li>
+            <li>
+              <Link href="/application-form-2026/" className="hover:text-secondary-light transition">
+                Online Application Form
+              </Link>
             </li>
           </ul>
         </div>

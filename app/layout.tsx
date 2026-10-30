@@ -1,15 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import { SITE_URL } from "@/lib/siteUrl";
 
-// One typeface for the whole site (matches the logo wordmark).
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+// Montserrat loaded from the locally-installed @fontsource-variable package.
+// This removes the build-time dependency on Google Fonts and prevents the
+// "Failed to download Montserrat from Google Fonts" error.
+const montserrat = localFont({
+  src: "../node_modules/@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2",
   variable: "--font-montserrat",
   display: "swap",
+  weight: "100 900",
 });
 
 export const viewport: Viewport = {
@@ -53,6 +55,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "P K Das College of Physiotherapy",
     locale: "en_IN",
+    url: SITE_URL + "/",
     images: [{ url: "/BPTLOGO3.png", alt: "P K Das College of Physiotherapy" }],
   },
 

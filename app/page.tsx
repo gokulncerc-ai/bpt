@@ -14,10 +14,11 @@ import { SITE_URL } from "@/lib/siteUrl";
 // The one official address of this page (tells Google "index THIS address").
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
+  openGraph: { url: SITE_URL + "/" },
 };
 
 // Structured data: tells Google exactly what this website is (name, address, phone, logo).
-const jsonLd = {
+const collegeSchema = {
   "@context": "https://schema.org",
   "@type": "CollegeOrUniversity",
   name: "P K Das College of Physiotherapy",
@@ -43,13 +44,24 @@ const jsonLd = {
   },
 };
 
+// WebSite schema helps Google understand the site entity and display sitelinks.
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "P K Das College of Physiotherapy",
+  url: `${SITE_URL}/`,
+};
+
 export default function Home() {
   return (
     <main>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          __html: JSON.stringify([collegeSchema, websiteSchema]).replace(
+            /</g,
+            "\\u003c"
+          ),
         }}
       />
       <Navbar />

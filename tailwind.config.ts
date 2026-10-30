@@ -37,10 +37,15 @@ module.exports = {
           "0%": { opacity: "0", transform: "translateY(-4px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
+        fadeDown: {
+          "0%": { opacity: "0", transform: "translateY(-8px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         fadeUp: "fadeUp 0.8s ease-out both",
         fadeIn: "fadeIn 0.3s ease-out both",
+        fadeDown: "fadeDown 0.25s ease-out both",
       },
     },
   },
