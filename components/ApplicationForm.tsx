@@ -425,11 +425,22 @@ export default function ApplicationForm() {
             <span className="inline-block rounded-full bg-white/15 border border-white/25 px-4 py-1.5 text-[13px] font-semibold tracking-wide">
               Admissions {ACADEMIC_YEAR}
             </span>
-            <h1 className="mt-3 text-[28px] md:text-[40px] font-bold leading-tight">Online Application Form</h1>
+
+            <h1 className="mt-3 text-[28px] md:text-[40px] font-bold leading-tight">
+              Online Application Form
+            </h1>
+
+            {/* New introductory content */}
+            <p className="mt-3 max-w-3xl text-[14px] md:text-[16px] leading-relaxed text-white/90">
+              Begin your journey towards a rewarding career in healthcare with PK Das
+              College of Physiotherapy, one of the leading physiotherapy colleges in Kerala.
+            </p>
+
             <p className="mt-2 text-white/85">
               {COURSE_NAME}. Fields marked with <span className="font-bold">*</span> are required.
             </p>
           </div>
+
           <Link
             href="/"
             className="rounded-full border border-white/60 px-5 py-2 text-[14px] font-semibold hover:bg-white hover:text-primary transition"
