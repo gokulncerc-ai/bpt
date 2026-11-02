@@ -55,8 +55,13 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "P K Das College of Physiotherapy",
     locale: "en_IN",
-    url: SITE_URL + "/",
-    images: [{ url: "/BPTLOGO3.png", alt: "P K Das College of Physiotherapy" }],
+    url: `${SITE_URL}/application-form-2026/`,
+    images: [
+      {
+        url: "/BPTLOGO3.png",
+        alt: "P K Das College of Physiotherapy",
+      },
+    ],
   },
   // Google Search Console verification (renders <meta name="google-site-verification" ...>)
   verification: {
