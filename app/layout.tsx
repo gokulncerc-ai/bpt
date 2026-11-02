@@ -58,12 +58,10 @@ export const metadata: Metadata = {
     url: SITE_URL + "/",
     images: [{ url: "/BPTLOGO3.png", alt: "P K Das College of Physiotherapy" }],
   },
-
   // Google Search Console verification (renders <meta name="google-site-verification" ...>)
   verification: {
     google: "pUGZe9Hi99MCs1t4_Ncc0ERZP9upRuSvr-0jHRWqSmE",
   },
-
   // Favicon: the file lives in D:\BPT\public\BPTLOGO.png
   icons: {
     icon: "/BPTLOGO.png",
