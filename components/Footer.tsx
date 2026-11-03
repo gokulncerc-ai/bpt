@@ -2,6 +2,16 @@ import Link from "next/link";
 import Image from "next/image";
 import { contact } from "@/lib/content";
 
+const EXPLORE = [
+  { href: "/", label: "Home" },
+  { href: "/about/", label: "About the College" },
+  { href: "/mission-vision/", label: "Mission & Vision" },
+  { href: "/departments/", label: "Departments" },
+  { href: "/admissions/", label: "Admissions" },
+  { href: "/contact/", label: "Contact" },
+  { href: "/application-form-2026/", label: "Online Application Form" },
+];
+
 export default function Footer() {
   return (
     <footer className="relative bg-primary-dark text-white/75">
@@ -35,38 +45,20 @@ export default function Footer() {
         </div>
 
         {/* ---------- Explore ---------- */}
-        <div>
+        <nav aria-label="Footer">
           <div className="text-white font-semibold text-[14px] mb-4 pb-2 border-b-2 border-secondary inline-block">
             Explore
           </div>
           <ul className="space-y-2.5 text-[14px]">
-            <li>
-              <a href="/#about" className="hover:text-secondary-light transition">
-                About the College
-              </a>
-            </li>
-            <li>
-              <a href="/#mission" className="hover:text-secondary-light transition">
-                Mission &amp; Vision
-              </a>
-            </li>
-            <li>
-              <a href="/#departments" className="hover:text-secondary-light transition">
-                Departments
-              </a>
-            </li>
-            <li>
-              <a href="/#admissions" className="hover:text-secondary-light transition">
-                Admissions
-              </a>
-            </li>
-            <li>
-              <Link href="/application-form-2026/" className="hover:text-secondary-light transition">
-                Online Application Form
-              </Link>
-            </li>
+            {EXPLORE.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href} className="hover:text-secondary-light transition">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
-        </div>
+        </nav>
 
         {/* ---------- Contact ---------- */}
         <div>

@@ -16,11 +16,10 @@ interface AccordionItemProps {
 function AccordionItem({ title, isOpen, onToggle, children }: AccordionItemProps) {
   return (
     <div
-      className={`bg-white overflow-hidden rounded-2xl border transition-all duration-300 ${
-        isOpen
+      className={`bg-white overflow-hidden rounded-2xl border transition-all duration-300 ${isOpen
           ? "border-secondary shadow-md"
           : "border-mist shadow-sm hover:shadow-md hover:border-secondary/50"
-      }`}
+        }`}
     >
       <button
         type="button"
@@ -29,28 +28,28 @@ function AccordionItem({ title, isOpen, onToggle, children }: AccordionItemProps
         className="w-full flex items-center justify-between gap-4 p-6 text-left transition-colors hover:bg-paper"
       >
         <h3
-          className={`font-display text-[18px] md:text-[20px] font-semibold transition-colors ${
-            isOpen ? "text-secondary-dark" : "text-primary"
-          }`}
+          className={`font-display text-[18px] md:text-[20px] font-semibold transition-colors ${isOpen ? "text-secondary-dark" : "text-primary"
+            }`}
         >
           {title}
         </h3>
         <span
-          className={`flex shrink-0 items-center justify-center w-8 h-8 rounded-full border font-semibold text-lg transition-colors ${
-            isOpen
+          className={`flex shrink-0 items-center justify-center w-8 h-8 rounded-full border font-semibold text-lg transition-colors ${isOpen
               ? "bg-secondary text-white border-secondary"
               : "bg-paper text-primary border-mist"
-          }`}
+            }`}
         >
           {isOpen ? "−" : "+"}
         </span>
       </button>
 
-      {isOpen && (
-        <div className="px-6 pb-6 pt-4 text-primary/75 text-[15px] leading-relaxed border-t border-mist animate-fadeIn">
-          {children}
-        </div>
-      )}
+      {/* Always in the page HTML (so Google can read it); only hidden visually while closed. */}
+      <div
+        hidden={!isOpen}
+        className="px-6 pb-6 pt-4 text-primary/75 text-[15px] leading-relaxed border-t border-mist animate-fadeIn"
+      >
+        {children}
+      </div>
     </div>
   );
 }

@@ -2,11 +2,8 @@ import type { Metadata } from "next";
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import MissionVision from "@/components/MissionVision";
-import Departments from "@/components/Departments";
-import AdmissionsCTA from "@/components/AdmissionsCTA";
-import Contact from "@/components/Contact";
+import HomeHighlights from "@/components/HomeHighlights";
+import ExploreCards from "@/components/ExploreCards";
 import Footer from "@/components/Footer";
 
 import { contact } from "@/lib/content";
@@ -63,31 +60,25 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <main id="top">
-      {/* College structured data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
-
-      {/* Homepage sections */}
+    <>
       <Navbar />
 
-      <Hero />
+      <main id="top">
+        {/* College structured data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
 
-      <About />
-
-      <MissionVision />
-
-      <Departments />
-
-      <AdmissionsCTA />
-
-      <Contact />
+        {/* The home page is now short: banner, key facts, and links to every page */}
+        <Hero />
+        <HomeHighlights />
+        <ExploreCards />
+      </main>
 
       <Footer />
-    </main>
+    </>
   );
 }
