@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "P K Das College of Physiotherapy",
     locale: "en_IN",
-    url: `${SITE_URL}/application-form-2026/`,
+    url: `${SITE_URL}/`,
     images: [
       {
         url: "/BPTLOGO3.png",
