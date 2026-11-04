@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   // Google Search Console verification (renders <meta name="google-site-verification" ...>)
   verification: {
-    google: "9COct_zPcmfSvDvlBlpydO4MlDtGmJqmjJBACwrKbIg",
+    google: "pUGZe9Hi99MCs1t4_Ncc0ERZP9upRuSvr-0jHRWqSm",
   },
   // Favicon: the file lives in D:\BPT\public\BPTLOGO.png
   icons: {
