@@ -1,23 +1,24 @@
+
 import type { Metadata } from "next";
 
-/**
- * One helper so every page gets: its own title, description, canonical address
- * and correct link-preview (Open Graph) tags.
- * `path` must start AND end with "/"  (next.config.js has trailingSlash: true).
- */
 export function pageMetadata({
     title,
     description,
     path,
+    keywords,
 }: {
     title: string;
     description: string;
     path: string;
+    keywords?: string[];
 }): Metadata {
     return {
         title,
         description,
-        alternates: { canonical: path },
+        keywords,
+        alternates: {
+            canonical: path,
+        },
         openGraph: {
             type: "website",
             siteName: "P K Das College of Physiotherapy",
@@ -25,7 +26,12 @@ export function pageMetadata({
             url: path,
             title,
             description,
-            images: [{ url: "/BPTLOGO3.png", alt: "P K Das College of Physiotherapy" }],
+            images: [
+                {
+                    url: "/BPTLOGO3.png",
+                    alt: "P K Das College of Physiotherapy",
+                },
+            ],
         },
     };
 }

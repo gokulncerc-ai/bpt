@@ -1,11 +1,18 @@
+
 import PageShell from "@/components/PageShell";
 import Contact from "@/components/Contact";
 import { pageMetadata } from "@/lib/pageMeta";
 
 export const metadata = pageMetadata({
-    title: "Contact & Location | P K Das College of Physiotherapy, Ottapalam",
+    title: "Contact PK Das College of Physiotherapy | Physiotherapy College in Kerala",
     description:
-        "Contact P K Das College of Physiotherapy, Vaniyamkulam, Ottapalam, Palakkad - 679522. Admission phone numbers, email and map directions.",
+        "PK Das College of Physiotherapy welcomes enquiries about BPT admissions, course details and eligibility. Contact us to learn more about studying at one of the top physiotherapy colleges in Kerala.",
+    keywords: [
+        "PK Das College of Physiotherapy Contact",
+        "Physiotherapy Colleges in Kerala",
+        "BPT Colleges in Kerala",
+        "Physiotherapy College in Ottapalam",
+    ],
     path: "/contact/",
 });
 
@@ -13,7 +20,7 @@ export default function Page() {
     return (
         <PageShell
             title="Contact Us"
-            description="Address, phone numbers, email and a map to reach the campus."
+            description="PK Das College of Physiotherapy welcomes enquiries about BPT admissions, course details and eligibility. Contact us to learn more about studying at one of the top physiotherapy colleges in Kerala."
             path="/contact/"
         >
             <Contact />
