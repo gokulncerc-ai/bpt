@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -101,7 +100,6 @@ function downloadPdf(base64: string, name: string) {
   setTimeout(() => URL.revokeObjectURL(url), 10000);
 }
 
-/* ---------------------------------------------------------------- the form */
 export default function ApplicationForm() {
   const [values, setValues] = useState<Values>(emptyValues);
   const [sameAddress, setSameAddress] = useState(false);
