@@ -17,8 +17,8 @@ function AccordionItem({ title, isOpen, onToggle, children }: AccordionItemProps
   return (
     <div
       className={`bg-white overflow-hidden rounded-2xl border transition-all duration-300 ${isOpen
-          ? "border-secondary shadow-md"
-          : "border-mist shadow-sm hover:shadow-md hover:border-secondary/50"
+        ? "border-secondary shadow-md"
+        : "border-mist shadow-sm hover:shadow-md hover:border-secondary/50"
         }`}
     >
       <button
@@ -35,8 +35,8 @@ function AccordionItem({ title, isOpen, onToggle, children }: AccordionItemProps
         </h3>
         <span
           className={`flex shrink-0 items-center justify-center w-8 h-8 rounded-full border font-semibold text-lg transition-colors ${isOpen
-              ? "bg-secondary text-white border-secondary"
-              : "bg-paper text-primary border-mist"
+            ? "bg-secondary text-white border-secondary"
+            : "bg-paper text-primary border-mist"
             }`}
         >
           {isOpen ? "−" : "+"}
@@ -131,6 +131,45 @@ export default function AdmissionsCTA() {
               </div>
             </AccordionItem>
 
+
+            <AccordionItem
+              title="Brochure"
+              isOpen={openIndex === 5}
+              onToggle={() => toggleAccordion(5)}
+            >
+              <div className="space-y-4">
+                <p>
+                  Download the official Bachelor of Physiotherapy (BPT)
+                  brochure to learn more about the course.
+                </p>
+
+                <a
+                  href="\documents\admissions\BPT_Brochure_v3_23-11-2026.pdf"
+                  download="BPT_Brochure_v3_23-11-2026.pdf"
+                  className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+
+                  Download Brochure (PDF)
+                </a>
+              </div>
+            </AccordionItem>
+
+
             {/* 2 */}
             <AccordionItem
               title="Eligibility Criteria"
@@ -151,6 +190,97 @@ export default function AdmissionsCTA() {
                 </div>
               </div>
             </AccordionItem>
+
+
+            <AccordionItem
+              title="Rank List"
+              isOpen={openIndex === 6}
+              onToggle={() => toggleAccordion(6)}
+            >
+              <div className="space-y-4">
+                <p>
+                  Download the BPT admission rank lists
+                </p>
+
+                <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+
+                  {/* Spot Admission List */}
+                  <a
+                    href="\documents\admissions\Spot_Admission_List.xlsx"
+                    download="Spot_Admission_List.xlsx"
+                    className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Spot Admission List
+                  </a>
+
+                  {/* Management List */}
+                  <a
+                    href="\documents\admissions\Management_List.xlsx"
+                    download="Management_List.xlsx"
+                    className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Management List
+                  </a>
+
+                  {/* Merit List */}
+                  <a
+                    href="\documents\admissions\Merit_List.xlsx"
+                    download="Merit_List.xlsx"
+                    className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Merit List
+                  </a>
+
+                </div>
+              </div>
+            </AccordionItem>
+
+
 
             {/* 3 */}
             <AccordionItem
