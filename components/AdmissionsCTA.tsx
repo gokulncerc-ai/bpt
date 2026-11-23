@@ -192,6 +192,7 @@ export default function AdmissionsCTA() {
             </AccordionItem>
 
 
+
             <AccordionItem
               title="Rank List"
               isOpen={openIndex === 6}
@@ -199,15 +200,16 @@ export default function AdmissionsCTA() {
             >
               <div className="space-y-4">
                 <p>
-                  Download the BPT admission rank lists
+                  View the BPT admission rank lists.
                 </p>
 
                 <div className="flex flex-col sm:flex-row flex-wrap gap-3">
 
                   {/* Spot Admission List */}
                   <a
-                    href="\documents\admissions\Spot_Admission_List.xlsx"
-                    download="Spot_Admission_List.xlsx"
+                    href="\images\admissions\spot_admission.webp"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-300"
                   >
                     <svg
@@ -221,17 +223,18 @@ export default function AdmissionsCTA() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     >
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                      <polyline points="7 10 12 15 17 10" />
-                      <line x1="12" y1="15" x2="12" y2="3" />
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <circle cx="8.5" cy="8.5" r="1.5" />
+                      <path d="m21 15-5-5L5 21" />
                     </svg>
                     Spot Admission List
                   </a>
 
                   {/* Management List */}
                   <a
-                    href="\documents\admissions\Management_List.xlsx"
-                    download="Management_List.xlsx"
+                    href="\images\admissions\management_list.webp"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-300"
                   >
                     <svg
@@ -245,17 +248,18 @@ export default function AdmissionsCTA() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     >
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                      <polyline points="7 10 12 15 17 10" />
-                      <line x1="12" y1="15" x2="12" y2="3" />
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <circle cx="8.5" cy="8.5" r="1.5" />
+                      <path d="m21 15-5-5L5 21" />
                     </svg>
                     Management List
                   </a>
 
                   {/* Merit List */}
                   <a
-                    href="\documents\admissions\Merit_List.xlsx"
-                    download="Merit_List.xlsx"
+                    href="\images\admissions\merit_list.webp"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-3 rounded-lg text-sm font-semibold transition-all duration-300"
                   >
                     <svg
@@ -269,9 +273,9 @@ export default function AdmissionsCTA() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     >
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                      <polyline points="7 10 12 15 17 10" />
-                      <line x1="12" y1="15" x2="12" y2="3" />
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <circle cx="8.5" cy="8.5" r="1.5" />
+                      <path d="m21 15-5-5L5 21" />
                     </svg>
                     Merit List
                   </a>
@@ -279,6 +283,7 @@ export default function AdmissionsCTA() {
                 </div>
               </div>
             </AccordionItem>
+
 
 
 
